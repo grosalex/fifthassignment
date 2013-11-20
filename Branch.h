@@ -20,6 +20,7 @@ private:
 	string address;
 	string phonenb;
 	static int number_of_branches;
+	Client* clientsarray[100];
 };
 
 #endif /* BRANCH_H_ */

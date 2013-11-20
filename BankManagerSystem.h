@@ -16,7 +16,6 @@ public:
 private:
 	Branch * branchArray[maxbranch];
 	Account* bankaccounts[100];
-	Client* clientsarray[100];
 };
 
 #endif /* BANKMANAGERSYSTEM_H_ */
