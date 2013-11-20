@@ -26,7 +26,7 @@ private:
 	int branchtarget;
 	int accounttarget;
 	int amount;
-	Date* transacationDate;
+	Date* transactionDate;
 
 };
 

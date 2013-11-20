@@ -15,7 +15,6 @@ public:
 
 private:
 	Account* bankaccounts[100];
-	Client* clientsarray[100];
 };
 
 #endif /* BANKMANAGERSYSTEM_H_ */
