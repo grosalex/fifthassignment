@@ -10,10 +10,13 @@
 #include "Date.h"
 #include "Account.h"
 #include <string>
+#define maxAccount 10
+#define maxRecord 10
 class Client {
 public:
 	Client();
 	virtual ~Client();
+	bool addAccount();
 
 private:
 	int clientid;
