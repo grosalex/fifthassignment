@@ -19,12 +19,7 @@ public:
 private:
 	static int nb_of_transactions;
 	int transactionID;
-	int branchid;
 	string transactiontype; //Deposit/Withdrawal/transfer
-	int accountsource;
-	int branchsource;
-	int branchtarget;
-	int accounttarget;
 	int amount;
 	Date* transactionDate;
 
