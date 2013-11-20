@@ -16,3 +16,11 @@ BankManagerSystem::~BankManagerSystem() {
 	// TODO Auto-generated destructor stub
 }
 
+bool BankManagerSystem::addBranch() {
+	int i=0;
+	bool result=false;
+	for(i=0;i<maxbranch;i++){
+
+	}
+	return result;
+}
