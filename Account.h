@@ -7,6 +7,8 @@
 
 #ifndef ACCOUNT_H_
 #define ACCOUNT_H_
+#include <iostream>
+using namespace std;
 
 class Account {
 public:
@@ -17,7 +19,6 @@ private:
 	int accountnb;
 	int money;
 	int clientid;
-	string type; //checking/saving
 	int interest;
 };
 
