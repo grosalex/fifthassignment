@@ -16,6 +16,9 @@ public:
 private:
 	int accountnb;
 	int money;
+	int clientid;
+	string type; //checking/saving
+	int interest;
 };
 
 #endif /* ACCOUNT_H_ */

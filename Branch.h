@@ -7,6 +7,8 @@
 
 #ifndef BRANCH_H_
 #define BRANCH_H_
+#include <iostream>
+using namespace std;
 #include <string>
 class Branch {
 public:
@@ -17,6 +19,7 @@ private:
 	int branchid;
 	string address;
 	string phonenb;
+	static int number_of_branches;
 };
 
 #endif /* BRANCH_H_ */

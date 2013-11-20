@@ -16,12 +16,15 @@ public:
 	virtual ~Client();
 
 private:
-	Date birhdate;
+	int clientid;
+	static int number_of_clients;
+	Date* birhdate;
 	string name;
 	string address;
 	string phonenb;
 	string socialnb;
 	Account* accounts[10];///TODO Combien d'account ? Vector ? Mettre plutot id client dans classe account ?
+	Transaction* records[10];
 };
 
 #endif /* CLIENT_H_ */
