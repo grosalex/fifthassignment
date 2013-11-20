@@ -8,6 +8,9 @@
 #ifndef BANKMANAGERSYSTEM_H_
 #define BANKMANAGERSYSTEM_H_
 #define maxbranch 100
+#define maxaccount 100
+#include <iostream>
+
 class BankManagerSystem {
 public:
 	BankManagerSystem();
@@ -15,7 +18,7 @@ public:
 	bool addBranch();
 private:
 	Branch * branchArray[maxbranch];
-	Account* bankaccounts[100];
+	Account* bankAccounts[maxaccount];
 };
 
 #endif /* BANKMANAGERSYSTEM_H_ */
