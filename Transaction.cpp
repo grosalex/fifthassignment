@@ -7,9 +7,24 @@
 
 #include "Transaction.h"
 
-Transaction::Transaction() {
-	// TODO Auto-generated constructor stub
+int Transaction::nb_of_transactions = 0;
 
+Transaction::Transaction() {
+	int inAmount;
+	string inTransactionType;
+
+	nb_of_transactions++;
+	transactionID = nb_of_transactions;
+	do {
+		cout << "Which type ? w for withdrawal, t for transfer, d for deposit" << endl;
+		cin >> inTransactionType;
+	}while(inTransactionType!="w" || inTransactionType!="t" || inTransactionType!="d");
+	transactionType = inTransactionType;
+	cout << "How much money ?" << endl;
+	cin >> inAmount;
+	amount = inAmount;
+	cout << "Transaction date :" << endl;
+	transactionDate = new Date;
 }
 
 Transaction::~Transaction() {

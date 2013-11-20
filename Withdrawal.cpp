@@ -7,9 +7,10 @@
 
 #include "Withdrawal.h"
 
-Withdrawal::Withdrawal() {
-	// TODO Auto-generated constructor stub
-
+Withdrawal::Withdrawal(int inBranch, int inAccount)
+	:Transaction() {
+	account = inAccount;
+	branch = inBranch;
 }
 
 Withdrawal::~Withdrawal() {

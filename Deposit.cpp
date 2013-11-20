@@ -7,9 +7,10 @@
 
 #include "Deposit.h"
 
-Deposit::Deposit() {
-	// TODO Auto-generated constructor stub
-
+Deposit::Deposit(int inBranch, int inAccount)
+	:Transaction(){
+	branch = inBranch;
+	account = inAccount;
 }
 
 Deposit::~Deposit() {

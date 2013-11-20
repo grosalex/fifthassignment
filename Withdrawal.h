@@ -12,13 +12,12 @@
 
 class Withdrawal: public Transaction {
 public:
-	Withdrawal();
+	Withdrawal(int,int);
 	virtual ~Withdrawal();
 
 private:
 	int account;
 	int branch;
-
 };
 
 #endif /* WITHDRAWAL_H_ */

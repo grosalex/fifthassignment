@@ -19,10 +19,9 @@ public:
 private:
 	static int nb_of_transactions;
 	int transactionID;
-	string transactiontype; //Deposit/Withdrawal/transfer
+	string transactionType; //Deposit/Withdrawal/transfer
 	int amount;
 	Date* transactionDate;
-
 };
 
 #endif /* TRANSACTION_H_ */
