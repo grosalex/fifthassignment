@@ -18,6 +18,9 @@ public:
 	Branch();
 	bool addClient();
 	virtual ~Branch();
+	void print();
+	int getBranchid() const;
+	void setBranchid(int branchid);
 
 private:
 	int branchid;

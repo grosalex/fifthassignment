@@ -15,6 +15,8 @@ using namespace std;
 
 int main(void) {
 	char choice=' ';
+	int id=0;
+	bool results=false;
 	BankManagerSystem * myManager= new BankManagerSystem();
 	cout << "This is the fifth Assignment" << endl; /* prints This is the fifth Assignment */
 	/*
@@ -33,6 +35,16 @@ int main(void) {
 		myManager->addBranch();
 		break;
 	case '2':
+		myManager->showBranches();
+		cout << "Enter the branch id in wich you want to create the client : ";
+		cin >> id;
+		results=myManager->addClientInBranch(id);
+		if(results){
+			cout << "Success" << endl;
+		}
+		else{
+			cout << "failure" << endl;
+		}
 		break;
 	case '3':
 		break;

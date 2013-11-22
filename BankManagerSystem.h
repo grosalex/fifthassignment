@@ -20,6 +20,7 @@ public:
 	virtual ~BankManagerSystem();
 	bool addBranch();
 	void showBranches();
+	bool addClientInBranch(int branchId);
 private:
 	Branch * branchArray[maxbranch];
 	Account* bankAccounts[maxaccount];

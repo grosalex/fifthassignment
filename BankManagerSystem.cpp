@@ -33,3 +33,22 @@ bool BankManagerSystem::addBranch() {
 	}
 	return result;
 }
+
+void BankManagerSystem::showBranches() {
+	int i=0;
+	for(i=0;i<maxbranch;i++){
+		branchArray[i]->print();
+	}
+}
+
+bool BankManagerSystem::addClientInBranch(int branchId) {
+	bool results=false;
+	int i=0;
+	for(i=0;i<maxbranch;i++){
+		if(branchArray[i]->getBranchid()==branchId){
+			results=branchArray[i]->addClient()();
+			i=maxbranch;
+		}
+	}
+	return results;
+}

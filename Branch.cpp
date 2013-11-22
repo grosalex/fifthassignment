@@ -39,3 +39,18 @@ Branch::~Branch() {
 	// TODO Auto-generated destructor stub
 }
 
+void Branch::print() {
+	cout << "Branch id : " <<branchid<< endl;
+	cout << "Address : " << address << endl;
+	cout << "Phone number : " << phonenb << endl;
+}
+
+int Branch::getBranchid() const {
+	return branchid;
+}
+
+void Branch::setBranchid(int branchid) {
+	this->branchid = branchid;
+}
+
+
