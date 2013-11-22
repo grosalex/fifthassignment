@@ -42,4 +42,13 @@ Client::~Client() {
 }
 
 bool Client::addAccount() {
+	bool result=false;
+	int i=0;
+	for(i=0;i<maxAccount;i++){
+		if(accounts[i]==NULL){
+			accounts[i]=new Account;
+			i=maxAccount;
+		}
+	}
+	return result;
 }
