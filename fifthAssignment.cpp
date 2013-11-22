@@ -51,6 +51,10 @@ int main(void) {
 	case '4':
 		break;
 	case '5':
+		myManager->showBranches();
+		cout << "Enter the branch id in wich you want to show clients : ";
+		cin >> id;
+		myManager->showClientFromBranch(id);
 		break;
 	case '6':
 		break;

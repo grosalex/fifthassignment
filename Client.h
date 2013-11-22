@@ -21,7 +21,7 @@ public:
 	Client();
 	virtual ~Client();
 	bool addAccount();
-	void print();
+	void print();///todo on affiche les comptes et les records?
 
 private:
 	int clientid;

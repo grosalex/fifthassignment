@@ -21,6 +21,7 @@ public:
 	bool addBranch();
 	void showBranches();
 	bool addClientInBranch(int branchId);
+	void showClientFromBranch(int branchId);
 private:
 	Branch * branchArray[maxbranch];
 	Account* bankAccounts[maxaccount];

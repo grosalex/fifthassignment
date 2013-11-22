@@ -46,9 +46,20 @@ bool BankManagerSystem::addClientInBranch(int branchId) {
 	int i=0;
 	for(i=0;i<maxbranch;i++){
 		if(branchArray[i]->getBranchid()==branchId){
-			results=branchArray[i]->addClient()();
+			results=branchArray[i]->addClient();
 			i=maxbranch;
+			results =true;
 		}
 	}
 	return results;
+}
+
+void BankManagerSystem::showClientFromBranch(int branchId) {
+	int i=0;
+	for(i=0;i<maxbranch;i++){
+		if(branchArray[i]->getBranchid()==branchId){
+			branchArray[i]->showClients();
+			i=maxbranch;
+		}
+	}
 }

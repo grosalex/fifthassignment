@@ -57,7 +57,7 @@ void Branch::showClients() {
 	int i=0;
 	for(i=0;i<maxClient;i++){
 		if(clientsArray[i]!=NULL){
-			clientsArray[i]
+			clientsArray[i]->print();
 		}
 	}
 }
