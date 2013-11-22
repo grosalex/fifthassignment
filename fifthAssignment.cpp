@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include "BankManagerSystem.h"
-#include "BankManagerSystem.cpp"
+//#include "BankManagerSystem.cpp"
 using namespace std;
 
 int main(void) {
