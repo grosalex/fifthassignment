@@ -27,7 +27,7 @@ bool Branch::addClient() {
 	int i=0;
 	for(i=0;i<maxClient;i++){
 		if(clientsArray[i]==NULL){
-			clientsArray[i]=new Client;
+			clientsArray[i]=new Client();
 			i=maxClient;
 			results=true;
 		}

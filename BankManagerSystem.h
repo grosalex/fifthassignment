@@ -10,12 +10,16 @@
 #define maxbranch 100
 #define maxaccount 100
 #include <iostream>
+#include "Branch.h"
+#include "Branch.cpp"
 
+#include "Account.h"
 class BankManagerSystem {
 public:
 	BankManagerSystem();
 	virtual ~BankManagerSystem();
 	bool addBranch();
+	void showBranches();
 private:
 	Branch * branchArray[maxbranch];
 	Account* bankAccounts[maxaccount];

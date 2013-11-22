@@ -8,8 +8,12 @@
 #ifndef CLIENT_H_
 #define CLIENT_H_
 #include "Date.h"
+#include "Date.cpp"
+
 #include "Account.h"
+#include "Account.cpp"
 #include <string>
+#include "Transaction.h"
 #define maxAccount 10
 #define maxRecord 10
 class Client {

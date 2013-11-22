@@ -10,7 +10,7 @@ int Client::number_of_clients=1;
 Client::Client() {
 	int i=0;
 	cout << "Enter his birthdate : ";
-	birhdate=new Date;
+	birhdate=new Date();
 	string inName;
 	string inAddress;
 	string inPhonenb;
@@ -46,7 +46,7 @@ bool Client::addAccount() {
 	int i=0;
 	for(i=0;i<maxAccount;i++){
 		if(accounts[i]==NULL){
-			accounts[i]=new Account;
+			accounts[i]=new Account();
 			i=maxAccount;
 		}
 	}

@@ -9,10 +9,13 @@
  */
 
 #include <iostream>
-
+#include "BankManagerSystem.h"
+#include "BankManagerSystem.cpp"
 using namespace std;
 
 int main(void) {
+	char choice=' ';
+	BankManagerSystem * myManager= new BankManagerSystem();
 	cout << "This is the fifth Assignment" << endl; /* prints This is the fifth Assignment */
 	/*
 	 * TODO
@@ -25,5 +28,20 @@ int main(void) {
 	 * 5) show clients from a branch
 	 * 6) transaction between two date
 	 */
+	switch(choice){
+	case '1'://
+		myManager->addBranch();
+		break;
+	case '2':
+		break;
+	case '3':
+		break;
+	case '4':
+		break;
+	case '5':
+		break;
+	case '6':
+		break;
+	}
 	return 0;
 }

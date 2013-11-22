@@ -10,6 +10,8 @@
 #include <iostream>
 using namespace std;
 #include <string>
+#include "Client.h"
+#include "Client.cpp"
 #define maxClient 100
 class Branch {
 public:
