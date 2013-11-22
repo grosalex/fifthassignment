@@ -21,6 +21,7 @@ public:
 	void print();
 	int getBranchid() const;
 	void setBranchid(int branchid);
+	void showClients();
 
 private:
 	int branchid;

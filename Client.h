@@ -21,6 +21,7 @@ public:
 	Client();
 	virtual ~Client();
 	bool addAccount();
+	void print();
 
 private:
 	int clientid;

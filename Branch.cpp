@@ -53,4 +53,11 @@ void Branch::setBranchid(int branchid) {
 	this->branchid = branchid;
 }
 
-
+void Branch::showClients() {
+	int i=0;
+	for(i=0;i<maxClient;i++){
+		if(clientsArray[i]!=NULL){
+			clientsArray[i]
+		}
+	}
+}
