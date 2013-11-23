@@ -12,12 +12,12 @@
 
 class Deposit: public Transaction {
 public:
-	Deposit(int, int);
+	Deposit(int, int, int);
 	virtual ~Deposit();
 
 private:
 	int account;
-	int branch;
+	int accountBranch;
 };
 
 #endif /* DEPOSIT_H_ */

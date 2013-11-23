@@ -30,6 +30,7 @@ int main(void) {
 	 * 5) show clients from a branch
 	 * 6) transaction between two date
 	 */
+	///TODO Faire le addaccount et addclient dans bankmanager
 	switch(choice){
 	case '1'://
 		myManager->addBranch();

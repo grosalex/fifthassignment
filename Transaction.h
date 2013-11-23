@@ -14,7 +14,7 @@ using namespace std;
 
 class Transaction {
 public:
-	Transaction();
+	Transaction(int);
 	virtual ~Transaction();
 
 private:
@@ -23,6 +23,7 @@ private:
 	string transactionType; //Deposit/Withdrawal/transfer
 	int amount;
 	Date* transactionDate;
+	int transactionBranch;
 };
 
 #endif /* TRANSACTION_H_ */

@@ -9,7 +9,7 @@
 
 int Transaction::nb_of_transactions = 0;
 
-Transaction::Transaction() {
+Transaction::Transaction(int inTransactionBranch) {
 	int inAmount;
 	string inTransactionType;
 
@@ -25,6 +25,7 @@ Transaction::Transaction() {
 	amount = inAmount;
 	cout << "Transaction date :" << endl;
 	transactionDate = new Date;
+	transactionBranch = inTransactionBranch;
 }
 
 Transaction::~Transaction() {
