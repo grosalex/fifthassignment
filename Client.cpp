@@ -29,9 +29,6 @@ Client::Client() {
 	address=inName;
 	phonenb=inPhonenb;
 	socialnb=inSocialnb;
-	for(i=0;i<maxAccount;i++){
-		accounts[i]=NULL;
-	}
 	for(i=0;i<maxRecord;i++){
 		records[i]=NULL;
 	}

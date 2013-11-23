@@ -31,3 +31,34 @@ Account::~Account() {
 	// TODO Auto-generated destructor stub
 }
 
+int Account::getAccountnb() const {
+	return accountnb;
+}
+
+void Account::setAccountnb(int accountnb) {
+	this->accountnb = accountnb;
+}
+
+int Account::getClientid() const {
+	return clientid;
+}
+
+void Account::setClientid(int clientid) {
+	this->clientid = clientid;
+}
+
+int Account::getInterest() const {
+	return interest;
+}
+
+void Account::setInterest(int interest) {
+	this->interest = interest;
+}
+
+int Account::getMoney() const {
+	return money;
+}
+
+void Account::setMoney(int money) {
+	this->money = money;
+}

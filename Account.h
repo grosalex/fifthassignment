@@ -14,6 +14,14 @@ class Account {
 public:
 	Account();
 	virtual ~Account();
+	int getAccountnb() const;
+	void setAccountnb(int accountnb);
+	int getClientid() const;
+	void setClientid(int clientid);
+	int getInterest() const;
+	void setInterest(int interest);
+	int getMoney() const;
+	void setMoney(int money);
 
 private:
 	int accountnb;

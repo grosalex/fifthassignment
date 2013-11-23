@@ -31,7 +31,8 @@ private:
 	string address;
 	string phonenb;
 	string socialnb;
-	Account* accounts[10];///TODO Combien d'account ? Vector ? Mettre plutot id client dans classe account ?
+	int branchid;
+	//Account* accounts[10];///TODO Combien d'account ? Vector ? Mettre plutot id client dans classe account ?
 	Transaction* records[10];
 };
 
