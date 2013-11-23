@@ -7,8 +7,8 @@
 
 #include "Withdrawal.h"
 
-Withdrawal::Withdrawal(int inBranch, int inAccount)
-	:Transaction() {
+Withdrawal::Withdrawal(int inBranch, int inAccount, int inWithdrawalBranch)
+	:Transaction(inWithdrawalBranch) {
 	account = inAccount;
 	branch = inBranch;
 }

@@ -12,7 +12,7 @@
 
 class Transfer: public Transaction {
 public:
-	Transfer(int, int, int, int);
+	Transfer(int, int, int, int, int);
 	virtual ~Transfer();
 
 private:

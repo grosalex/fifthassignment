@@ -12,7 +12,7 @@
 
 class Withdrawal: public Transaction {
 public:
-	Withdrawal(int,int);
+	Withdrawal(int,int,int);
 	virtual ~Withdrawal();
 
 private:

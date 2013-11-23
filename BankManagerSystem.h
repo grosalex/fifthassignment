@@ -28,6 +28,8 @@ public:
 	bool doTransfer();
 	bool doWithdrawal();
 	bool addAccount();
+	bool checkBranch(int); //Given a branchid, check if branch exists.
+
 private:
 	Branch * branchArray[maxbranch];
 	Account* bankAccounts[maxaccount];

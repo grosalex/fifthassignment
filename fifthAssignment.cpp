@@ -31,6 +31,7 @@ int main(void) {
 	 * 6) transaction between two date
 	 */
 	///TODO Faire le addaccount et addclient dans bankmanager
+	///TODO Gérer le tableau Records dans méthodes transaction
 	switch(choice){
 	case '1'://
 		myManager->addBranch();
