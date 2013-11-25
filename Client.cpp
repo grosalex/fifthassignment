@@ -144,7 +144,17 @@ void Client::showTransactions() {
 	int i =0;
 	for(i=0;i<maxRecord;i++){
 		if(records[i]!=NULL){
-			///Todo le print de toute les transactions
+			switch(records[i]->getTransactionType()) {
+				case 'd':
+					dynamic_cast<Deposit*>(records[i])->print();
+					break;
+				case 'w':
+					dynamic_cast<Withdrawal*>(records[i])->print();
+					break;
+				case 't':
+					dynamic_cast<Transfer*>(records[i])->print();
+					break;
+			}
 		}
 	}
 }
