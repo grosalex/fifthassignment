@@ -19,6 +19,7 @@ Transfer::~Transfer() {
 	// TODO Auto-generated destructor stub
 }
 
+
 void Transfer::print() {
 	/*Account* accountsource;
 	int branchsource;
@@ -31,4 +32,9 @@ void Transfer::print() {
 	cout << "Target Account" << endl;
 	accounttarget->print();
 	cout << "Account Target is in branch N°" << branchtarget << endl;
+}
+
+void Transfer::cancel() {
+	accountsource->setMoney(accountsource->getMoney()+amount);
+	accounttarget->setMoney(accounttarget->getMoney()-amount);
 }

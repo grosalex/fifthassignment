@@ -15,6 +15,7 @@ public:
 	Deposit(int, Account*, int);
 	virtual ~Deposit();
 	virtual void print();
+	void cancel();
 
 private:
 	Account* account;

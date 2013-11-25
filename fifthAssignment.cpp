@@ -93,7 +93,19 @@ int main(void) {
 		cout << "Enter the transaction id you want :";
 		cin >> idBis;
 		targetTransaction=target->findTransactionById(idBis);
-
+		switch(targetTransaction->getTransactionType()) {
+			case 'd':
+				dynamic_cast<Deposit*>(targetTransaction)->cancel();
+				break;
+			case 'w':
+				dynamic_cast<Withdrawal*>(targetTransaction)->cancel();
+				break;
+			case 't':
+				dynamic_cast<Transfer*>(targetTransaction)->cancel();
+				break;
+		}
+		delete targetTransaction;
+		cout << "Succesfully cancelled" << endl;
 	}
 	return 0;
 }

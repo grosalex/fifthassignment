@@ -15,6 +15,7 @@ public:
 	Withdrawal(int,Account*,int);
 	virtual ~Withdrawal();
 	virtual void print();
+	void cancel();
 
 private:
 	Account* account;
