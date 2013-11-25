@@ -13,8 +13,7 @@ Transfer::Transfer(int inBranchSource, Account* accountSource,int inBranchTarget
 	branchsource = inBranchSource;
 	branchtarget = inBranchTarget;
 	accounttarget = accountTarget->getAccountnb();
-	accountSource->setMoney(accountSource->getMoney()-amount);
-	accountTarget->setMoney(accountTarget->getMoney()+amount);
+
 }
 
 Transfer::~Transfer() {

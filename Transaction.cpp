@@ -37,14 +37,6 @@ void Transaction::setAmount(int amount) {
 	this->amount = amount;
 }
 
-static int Transaction::getNbOfTransactions() const {
-	return nb_of_transactions;
-}
-
-void Transaction::setNbOfTransactions(static int nbOfTransactions) {
-	nb_of_transactions = nbOfTransactions;
-}
-
 int Transaction::getTransactionBranch() const {
 	return transactionBranch;
 }
@@ -52,15 +44,6 @@ int Transaction::getTransactionBranch() const {
 void Transaction::setTransactionBranch(int transactionBranch) {
 	this->transactionBranch = transactionBranch;
 }
-
-const Date*& Transaction::getTransactionDate() const {
-	return transactionDate;
-}
-
-void Transaction::setTransactionDate(const Date*& transactionDate) {
-	this->transactionDate = transactionDate;
-}
-
 int Transaction::getTransactionId() const {
 	return transactionID;
 }
