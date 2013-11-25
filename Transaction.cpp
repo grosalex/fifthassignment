@@ -29,6 +29,16 @@ Transaction::~Transaction() {
 	delete transactionDate;
 }
 
+void Transaction::print() {
+	cout << "Transaction N°" << transactionID << endl;
+	cout << "Type : ";
+	if(transactionType=="w") cout << "Withdrawal" << endl;
+	else if (transactionType=="d") cout << "Deposit" << endl;
+	else cout << "Transfer" << endl;
+	cout << "Amount : $" << amount << endl;
+	cout << "Operation done in branch N°" << transactionBranch << endl;
+}
+
 int Transaction::getAmount() const {
 	return amount;
 }

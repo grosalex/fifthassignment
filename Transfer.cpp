@@ -19,3 +19,16 @@ Transfer::~Transfer() {
 	// TODO Auto-generated destructor stub
 }
 
+void Transfer::print() {
+	/*Account* accountsource;
+	int branchsource;
+	int branchtarget;
+	Account* accounttarget;*/
+	Transaction:print();
+	cout << "Source Account" << endl;
+	accountsource->print();
+	cout << "Account Source is in branch N°" << branchsource << endl;
+	cout << "Target Account" << endl;
+	accounttarget->print();
+	cout << "Account Target is in branch N°" << branchtarget << endl;
+}

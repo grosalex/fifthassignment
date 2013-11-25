@@ -17,6 +17,7 @@ class Transaction {
 public:
 	Transaction(int);
 	virtual ~Transaction();
+	virtual void print();
 	int getAmount() const;
 	void setAmount(int amount);
 	int getTransactionBranch() const;

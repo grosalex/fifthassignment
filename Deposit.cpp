@@ -17,3 +17,9 @@ Deposit::~Deposit() {
 	// TODO Auto-generated destructor stub
 }
 
+void Deposit::print() {
+	Transaction:print();
+	account->print();
+	cout << "Account is in branch N°" << accountBranch << endl;
+}
+

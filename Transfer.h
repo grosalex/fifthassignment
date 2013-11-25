@@ -20,6 +20,7 @@ private:
 	int branchsource;
 	int branchtarget;
 	Account* accounttarget;
+	virtual void print();
 };
 
 #endif /* TRANSFER_H_ */
