@@ -16,6 +16,7 @@ using namespace std;
 int main(void) {
 	char choice=' ';
 	int id=0;
+	int idBis=0;
 	string name;
 	Client * target=NULL;
 	bool results=false;
@@ -82,6 +83,14 @@ int main(void) {
 		target=myManager->findClientById(id);
 		delete target;
 		break;
+	case '8'://cancel a transaction
+		myManager->showAllClients();
+		cout << "What is the id of the client who wants to cancel a transaction : ";
+		cin >> id;
+		target=myManager->findClientById(id);
+		target->showTransactions();
+		cout << "Enter the transaction id you want :";
+		cin >> idBis;
 	}
 	return 0;
 }

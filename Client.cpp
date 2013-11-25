@@ -155,3 +155,12 @@ bool Client::openAccount() {
 	}
 	return false;
 }
+
+void Client::showTransactions() {
+	int i =0;
+	for(i=0;i<maxRecord;i++){
+		if(records[i]!=NULL){
+			///Todo le print de toute les transactions
+		}
+	}
+}

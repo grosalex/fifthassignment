@@ -43,7 +43,8 @@ public:
 	const string& getSocialnb() const;
 	void setSocialnb(const string& socialnb);
 	bool openAccount();
-
+	void showTransactions();
+	Transaction * findTransactionById(int id);
 
 private:
 	int clientid;
