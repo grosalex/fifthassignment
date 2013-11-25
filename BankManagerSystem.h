@@ -33,6 +33,7 @@ public:
 	bool checkBranch(int); //Given a branchid, check if branch exists.
 	void showAllClients();
 	Client * findClientById(int id);
+	void findClientByName(string name);
 private:
 	Branch * branchArray[maxbranch];
 	Account* bankAccounts[maxaccount];

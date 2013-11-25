@@ -73,3 +73,14 @@ Client* Branch::findClientById(int id) {
 	}
 	return NULL;
 }
+
+void Branch::findClientByName(string name) {
+	int i=0;
+	for(i=0;i<maxClient;i++){
+		if(clientsArray[i]!=NULL){
+			if (clientsArray[i]->getName()==name) {
+				clientsArray[i]->print();
+			}
+		}
+	}
+}
