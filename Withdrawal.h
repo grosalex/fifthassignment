@@ -14,6 +14,7 @@ class Withdrawal: public Transaction {
 public:
 	Withdrawal(int,Account*,int);
 	virtual ~Withdrawal();
+	void cancel();
 
 private:
 	Account* account;

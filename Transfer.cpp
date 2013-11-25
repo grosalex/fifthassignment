@@ -19,3 +19,7 @@ Transfer::~Transfer() {
 	// TODO Auto-generated destructor stub
 }
 
+void Transfer::cancel() {
+	accountsource->setMoney(accountsource->getMoney()+amount);
+	accounttarget->setMoney(accounttarget->getMoney()-amount);
+}

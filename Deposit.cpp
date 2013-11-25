@@ -17,3 +17,6 @@ Deposit::~Deposit() {
 	// TODO Auto-generated destructor stub
 }
 
+void Deposit::cancel() {
+	account->setMoney(account->getMoney()-amount);
+}

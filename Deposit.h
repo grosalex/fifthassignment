@@ -14,6 +14,7 @@ class Deposit: public Transaction {
 public:
 	Deposit(int, Account*, int);
 	virtual ~Deposit();
+	void cancel();
 
 private:
 	Account* account;

@@ -17,3 +17,6 @@ Withdrawal::~Withdrawal() {
 	// TODO Auto-generated destructor stub
 }
 
+void Withdrawal::cancel() {
+	account->setMoney(account->getMoney()+amount);
+}
