@@ -23,6 +23,7 @@ public:
 	void setBranchid(int branchid);
 	void showClients();
 	Client * findClientById(int id);
+	void findClientByName(string name);
 
 private:
 	int branchid;

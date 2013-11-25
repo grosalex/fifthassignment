@@ -16,6 +16,7 @@ using namespace std;
 int main(void) {
 	char choice=' ';
 	int id=0;
+	string name;
 	bool results=false;
 	BankManagerSystem * myManager= new BankManagerSystem();
 	cout << "This is the fifth Assignment" << endl; /* prints This is the fifth Assignment */
@@ -56,6 +57,9 @@ int main(void) {
 		else cout << "Failure" << endl;
 		break;
 	case '4':
+		cout << "Enter the client's name : ";
+		cin >> name;
+		myManager->findClientByName(name);
 		break;
 	case '5':
 		myManager->showBranches();

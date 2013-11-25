@@ -223,3 +223,12 @@ Client* BankManagerSystem::findClientById(int id) {
 	}
 	return NULL;
 }
+
+void BankManagerSystem::findClientByName(string name) {
+	int i=0;
+	for(i=0;i<maxbranch;i++){
+		if(branchArray[i]!=NULL){
+			branchArray[i]->findClientByName(name);
+		}
+	}
+}
