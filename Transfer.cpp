@@ -7,12 +7,14 @@
 
 #include "Transfer.h"
 
-Transfer::Transfer(int inBranchSource, int inAccountSource,int inBranchTarget, int inAccountTarget, int inTransactionBranch, int inAmount, string inTransactionType)
-	:Transaction(inTransactionBranch,inAmount, inTransactionType){
-	accountsource = inAccountSource;
+Transfer::Transfer(int inBranchSource, Account* accountSource,int inBranchTarget, Account* accountTarget, int inTransactionBranch)
+	:Transaction(inTransactionBranch){
+	accountsource = accountSource->getAccountnb();
 	branchsource = inBranchSource;
 	branchtarget = inBranchTarget;
-	accounttarget = inAccountTarget;
+	accounttarget = accountTarget->getAccountnb();
+	accountSource->setMoney(accountSource->getMoney()-amount);
+	accountTarget->setMoney(accountTarget->getMoney()+amount);
 }
 
 Transfer::~Transfer() {

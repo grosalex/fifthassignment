@@ -22,6 +22,7 @@ public:
 	virtual ~Client();
 	//bool addAccount();
 	void print();///todo on affiche les comptes et les records?
+	bool doTransaction();
 	const string& getAddress() const;
 	void setAddress(const string& address);
 	const Date*& getBirhdate() const;

@@ -7,9 +7,10 @@
 
 #include "Withdrawal.h"
 
-Withdrawal::Withdrawal(int inBranch, int inAccount, int inWithdrawalBranch, int inAmount, string inTransactionType)
-	:Transaction(inWithdrawalBranch, inAmount, inTransactionType) {
-	account = inAccount;
+Withdrawal::Withdrawal(int inBranch, Account* inAccount, int inWithdrawalBranch)
+	:Transaction(inWithdrawalBranch) {
+	account = inAccount->getAccountnb();
+	inAccount->setMoney(inAccount->getMoney()-amount);
 	branch = inBranch;
 }
 
