@@ -61,3 +61,15 @@ void Branch::showClients() {
 		}
 	}
 }
+
+Client* Branch::findClientById(int id) {
+	int i=0;
+	for(i=0;i<maxClient;i++){
+		if(clientsArray[i]!=NULL){
+			if(clientsArray[i]->getClientid()==id){
+				return clientsArray[i];
+			}
+		}
+	}
+	return NULL;
+}

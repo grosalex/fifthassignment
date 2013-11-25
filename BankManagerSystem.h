@@ -31,7 +31,8 @@ public:
 	bool checkBranch(int); //Given a branchid, check if branch exists.
 	int returnBranchId(Account*); //Given an account, return corresponding branch id
 	void addTransactionRecord(Account*,Transaction*);
-
+	void showAllClients();
+	Client * findClientById(int id);
 private:
 	Branch * branchArray[maxbranch];
 	Account* bankAccounts[maxaccount];

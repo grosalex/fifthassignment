@@ -30,8 +30,8 @@ int main(void) {
 	 * 5) show clients from a branch
 	 * 6) transaction between two date
 	 */
-	///TODO Faire le addaccount et addclient dans bankmanager, ou revenir à version précédente (tableau accounts dans client)
-	///TODO Gérer le tableau Records dans méthodes transaction (je le ferai)
+	///TODO Faire le addaccount et addclient dans bankmanager, ou revenir ï¿½ version prï¿½cï¿½dente (tableau accounts dans client)
+	///TODO Gï¿½rer le tableau Records dans mï¿½thodes transaction (je le ferai)
 	switch(choice){
 	case '1':
 		myManager->addBranch();
@@ -49,6 +49,11 @@ int main(void) {
 		}
 		break;
 	case '3':
+		results=myManager->addAccount();
+		if(results==true){
+			cout << "Account succesfully created" << endl;
+		}
+		else cout << "Failure" << endl;
 		break;
 	case '4':
 		break;

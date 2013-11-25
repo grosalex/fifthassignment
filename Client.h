@@ -40,6 +40,8 @@ public:
 	const Transaction**& getRecords() const;
 	const string& getSocialnb() const;
 	void setSocialnb(const string& socialnb);
+	bool openAccount();
+
 
 private:
 	int clientid;

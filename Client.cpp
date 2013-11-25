@@ -135,3 +135,14 @@ const string& Client::getSocialnb() const {
 void Client::setSocialnb(const string& socialnb) {
 	this->socialnb = socialnb;
 }
+
+bool Client::openAccount() {
+	int i=0;
+	for(i=0;i<maxAccount;i++){
+		if(accounts[i]==NULL){
+			accounts[i]=new Account();
+			return true;
+		}
+	}
+	return false;
+}
