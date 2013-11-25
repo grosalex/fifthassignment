@@ -71,7 +71,7 @@ int main(void) {
 		break;
 
 	case '7':
-
+		break;
 	}
 	return 0;
 }

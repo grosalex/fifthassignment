@@ -35,8 +35,8 @@ public:
 	void setClientid(int clientid);
 	const string& getName() const;
 	void setName(const string& name);
-	static int getNumberOfClients() const;
-	void setNumberOfClients(static int numberOfClients);
+	int getNumberOfClients();
+	void setNumberOfClients(int numberOfClients);
 	const string& getPhonenb() const;
 	void setPhonenb(const string& phonenb);
 	const Transaction**& getRecords() const;

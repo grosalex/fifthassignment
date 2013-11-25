@@ -38,7 +38,7 @@ Client::~Client() {
 	// TODO Auto-generated destructor stub
 }
 
-bool Client::addAccount() {
+/*bool Client::addAccount() {
 	bool result=false;
 	int i=0;
 	for(i=0;i<maxAccount;i++){
@@ -49,7 +49,7 @@ bool Client::addAccount() {
 	}
 	return result;
 }
-
+*/
 void Client::print() {
 	cout << "Client's id : " << clientid<< endl;
 	cout << "Client's name : " << name << endl;
@@ -115,7 +115,7 @@ void Client::setName(const string& name) {
 	this->name = name;
 }
 
-static int Client::getNumberOfClients() const {
+int Client::getNumberOfClients(){
 	return number_of_clients;
 }
 

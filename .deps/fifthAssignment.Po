@@ -80,8 +80,8 @@ fifthAssignment.o: fifthAssignment.cpp \
  /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/ostream.tcc \
  /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/istream \
  /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/bits/istream.tcc \
- BankManagerSystem.h Branch.h Client.h Date.h Date.cpp Account.h \
- Account.cpp Transaction.h Client.cpp Branch.cpp BankManagerSystem.cpp
+ BankManagerSystem.h Branch.h Client.h Date.h Account.h Transaction.h \
+ Withdrawal.h Deposit.h Transfer.h
 
 /usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../include/c++/4.7.2/iostream:
 
@@ -275,16 +275,12 @@ Client.h:
 
 Date.h:
 
-Date.cpp:
-
 Account.h:
-
-Account.cpp:
 
 Transaction.h:
 
-Client.cpp:
+Withdrawal.h:
 
-Branch.cpp:
+Deposit.h:
 
-BankManagerSystem.cpp:
+Transfer.h:
