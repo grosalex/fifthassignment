@@ -10,7 +10,6 @@
 Withdrawal::Withdrawal(int inBranch, Account* inAccount, int inWithdrawalBranch)
 	:Transaction(inWithdrawalBranch) {
 	account = inAccount->getAccountnb();
-	inAccount->setMoney(inAccount->getMoney()-amount);
 	branch = inBranch;
 }
 
