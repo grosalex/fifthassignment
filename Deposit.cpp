@@ -11,7 +11,6 @@ Deposit::Deposit(int inAccountBranch, Account* inAccount, int inDepositBranch)
 	:Transaction(inDepositBranch){
 	accountBranch = inAccountBranch;
 	account = inAccount->getAccountnb();
-	inAccount->setMoney(inAccount->getMoney()+amount*inAccount->getInterest()+amount);
 }
 
 Deposit::~Deposit() {

@@ -15,15 +15,10 @@ Transaction::Transaction(int inTransactionBranch) {
 
 	nb_of_transactions++;
 	transactionID = nb_of_transactions;
-	/*do {
-		cout << "Which type ? w for withdrawal, t for transfer, d for deposit" << endl;
-		cin >> inTransactionType;
-	}while(inTransactionType!="w" || inTransactionType!="t" || inTransactionType!="d");*/
 	transactionType = inTransactionType;
 	cout << "How much money ?" << endl;
 	cin >> inAmount;
 	amount = inAmount;
-	///TODO A mettre dans le main
 	cout << "Transaction date :" << endl;
 	transactionDate = new Date;
 	transactionBranch = inTransactionBranch;
@@ -34,3 +29,50 @@ Transaction::~Transaction() {
 	delete transactionDate;
 }
 
+int Transaction::getAmount() const {
+	return amount;
+}
+
+void Transaction::setAmount(int amount) {
+	this->amount = amount;
+}
+
+static int Transaction::getNbOfTransactions() const {
+	return nb_of_transactions;
+}
+
+void Transaction::setNbOfTransactions(static int nbOfTransactions) {
+	nb_of_transactions = nbOfTransactions;
+}
+
+int Transaction::getTransactionBranch() const {
+	return transactionBranch;
+}
+
+void Transaction::setTransactionBranch(int transactionBranch) {
+	this->transactionBranch = transactionBranch;
+}
+
+const Date*& Transaction::getTransactionDate() const {
+	return transactionDate;
+}
+
+void Transaction::setTransactionDate(const Date*& transactionDate) {
+	this->transactionDate = transactionDate;
+}
+
+int Transaction::getTransactionId() const {
+	return transactionID;
+}
+
+void Transaction::setTransactionId(int transactionId) {
+	transactionID = transactionId;
+}
+
+const string& Transaction::getTransactionType() const {
+	return transactionType;
+}
+
+void Transaction::setTransactionType(const string& transactionType) {
+	this->transactionType = transactionType;
+}
