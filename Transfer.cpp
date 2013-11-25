@@ -9,11 +9,10 @@
 
 Transfer::Transfer(int inBranchSource, Account* accountSource,int inBranchTarget, Account* accountTarget, int inTransactionBranch)
 	:Transaction(inTransactionBranch){
-	accountsource = accountSource->getAccountnb();
+	accountsource = accountSource;
 	branchsource = inBranchSource;
 	branchtarget = inBranchTarget;
-	accounttarget = accountTarget->getAccountnb();
-
+	accounttarget = accountTarget;
 }
 
 Transfer::~Transfer() {
