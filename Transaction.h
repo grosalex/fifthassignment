@@ -15,7 +15,7 @@ using namespace std;
 
 class Transaction {
 public:
-	Transaction(int);
+	Transaction(int,char);
 	virtual ~Transaction();
 	virtual void print();
 	int getAmount() const;

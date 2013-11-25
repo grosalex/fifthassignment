@@ -7,8 +7,8 @@
 
 #include "Transfer.h"
 
-Transfer::Transfer(int inBranchSource, Account* accountSource,int inBranchTarget, Account* accountTarget, int inTransactionBranch)
-	:Transaction(inTransactionBranch){
+Transfer::Transfer(int inBranchSource, Account* accountSource,int inBranchTarget, Account* accountTarget, int inTransactionBranch,char type)
+	:Transaction(inTransactionBranch,type){
 	accountsource = accountSource;
 	branchsource = inBranchSource;
 	branchtarget = inBranchTarget;
@@ -21,10 +21,6 @@ Transfer::~Transfer() {
 
 
 void Transfer::print() {
-	/*Account* accountsource;
-	int branchsource;
-	int branchtarget;
-	Account* accounttarget;*/
 	Transaction:print();
 	cout << "Source Account" << endl;
 	accountsource->print();

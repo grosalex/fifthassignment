@@ -12,7 +12,7 @@
 
 class Transfer: public Transaction {
 public:
-	Transfer(int, Account*, int, Account*, int);
+	Transfer(int, Account*, int, Account*, int,char);
 	virtual ~Transfer();
 	void cancel();
 

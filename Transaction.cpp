@@ -9,13 +9,12 @@
 
 int Transaction::nb_of_transactions = 0;
 
-Transaction::Transaction(int inTransactionBranch) {
-	string inTransactionType;
+Transaction::Transaction(int inTransactionBranch, char type) {
 	int inAmount;
 
 	nb_of_transactions++;
 	transactionID = nb_of_transactions;
-	transactionType = inTransactionType;
+	transactionType = type;
 	cout << "How much money ?" << endl;
 	cin >> inAmount;
 	amount = inAmount;

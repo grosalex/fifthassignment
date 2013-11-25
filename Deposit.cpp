@@ -7,8 +7,8 @@
 
 #include "Deposit.h"
 
-Deposit::Deposit(int inAccountBranch, Account* inAccount, int inDepositBranch)
-	:Transaction(inDepositBranch){
+Deposit::Deposit(int inAccountBranch, Account* inAccount, int inDepositBranch,char type)
+	:Transaction(inDepositBranch,type){
 	accountBranch = inAccountBranch;
 	account = inAccount;
 }

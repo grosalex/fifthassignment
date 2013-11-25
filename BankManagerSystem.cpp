@@ -235,7 +235,7 @@ bool BankManagerSystem::clientTransfer() {
 			targetAccount = clientTarget->findAccountById(sourceAccountid);
 		}
 	}
-	Transfer *t = new Transfer(sourceBranch,sourceAccount,targetBranch,targetAccount,transactionBranch);
+	Transfer *t = new Transfer(sourceBranch,sourceAccount,targetBranch,targetAccount,transactionBranch,'t');
 	sourceAccount->setMoney(sourceAccount->getMoney()-t->getAmount());
 	targetAccount->setMoney(targetAccount->getMoney()+t->getAmount());
 	if(clientSource->addTransactionInRecord(t) && clientTarget->addTransactionInRecord(t)) ok =true;
@@ -251,7 +251,7 @@ bool BankManagerSystem::clientDepositWithdrawal() {
 	int accountid;
 	Client* client;
 	Account* account;
-	string type;
+	char type;
 
 	cout << "Select where you are doing the transaction";
 	cin >> transactionBranch;
@@ -279,14 +279,14 @@ bool BankManagerSystem::clientDepositWithdrawal() {
 	do {
 		cout << "Type d for Deposit, w for Withdrawal";
 		cin >> type;
-	}while(type!="d" || type!="w");
-	if(type == "d") {
-		Deposit *d = new Deposit(branch,account,transactionBranch);
+	}while(type!='d' || type!='w');
+	if(type == 'd') {
+		Deposit *d = new Deposit(branch,account,transactionBranch,type);
 		account->setMoney(account->getMoney()+d->getAmount()*account->getInterest()+d->getAmount());
 		ok = client->addTransactionInRecord(d);
 	}
 	else {
-		Withdrawal *w = new Withdrawal(branch,account,transactionBranch);
+		Withdrawal *w = new Withdrawal(branch,account,transactionBranch,type);
 		int newAmount = account->getMoney()-w->getAmount();
 		try {
 			if(newAmount<0) throw account->getMoney()-w->getAmount();
