@@ -16,7 +16,7 @@ public:
 	virtual ~Withdrawal();
 
 private:
-	int account;
+	Account* account;
 	int branch;
 };
 

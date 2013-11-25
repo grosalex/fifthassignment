@@ -16,7 +16,7 @@ public:
 	virtual ~Deposit();
 
 private:
-	int account;
+	Account* account;
 	int accountBranch;
 };
 

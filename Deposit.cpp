@@ -10,7 +10,7 @@
 Deposit::Deposit(int inAccountBranch, Account* inAccount, int inDepositBranch)
 	:Transaction(inDepositBranch){
 	accountBranch = inAccountBranch;
-	account = inAccount->getAccountnb();
+	account = inAccount;
 }
 
 Deposit::~Deposit() {

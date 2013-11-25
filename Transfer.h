@@ -16,10 +16,10 @@ public:
 	virtual ~Transfer();
 
 private:
-	int accountsource;
+	Account* accountsource;
 	int branchsource;
 	int branchtarget;
-	int accounttarget;
+	Account* accounttarget;
 };
 
 #endif /* TRANSFER_H_ */
