@@ -31,6 +31,12 @@ Account::~Account() {
 	// TODO Auto-generated destructor stub
 }
 
+void Account::print() {
+	cout << "Account N°" << accountnb << endl;
+	cout << "Money : $" << money << endl;
+	cout << "Interest : " << interest*100 << "%" << endl;
+}
+
 int Account::getAccountnb() const {
 	return accountnb;
 }

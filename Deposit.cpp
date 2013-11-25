@@ -7,10 +7,11 @@
 
 #include "Deposit.h"
 
-Deposit::Deposit(int inAccountBranch, int inAccount, int inDepositBranch, int inAmount, string inTransactionType)
-	:Transaction(inDepositBranch,inAmount,inTransactionType){
+Deposit::Deposit(int inAccountBranch, Account* inAccount, int inDepositBranch)
+	:Transaction(inDepositBranch){
 	accountBranch = inAccountBranch;
-	account = inAccount;
+	account = inAccount->getAccountnb();
+	inAccount->setMoney(inAccount->getMoney()+amount*inAccount->getInterest()+amount);
 }
 
 Deposit::~Deposit() {

@@ -58,6 +58,16 @@ void Client::print() {
 	cout << "Client's social number is : "<< socialnb<<endl;
 }
 
+bool Client::doTransaction() {
+	bool ok=false;
+	int accountnb;
+	cout << "Select the account (enter account ID)" << endl;
+	for(int i=0; i<10;i++) {
+		accounts[i]->print();
+	}
+	cin >> accountnb;
+}
+
 const string& Client::getAddress() const {
 	return address;
 }

@@ -11,10 +11,11 @@
 using namespace std;
 #include <string>
 #include "Date.h"
+#include "Account.h"
 
 class Transaction {
 public:
-	Transaction(int, int,string);
+	Transaction(int);
 	virtual ~Transaction();
 
 private:

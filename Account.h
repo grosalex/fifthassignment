@@ -22,6 +22,7 @@ public:
 	void setInterest(int interest);
 	int getMoney() const;
 	void setMoney(int money);
+	void print();
 
 private:
 	int accountnb;

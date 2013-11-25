@@ -12,7 +12,7 @@
 
 class Deposit: public Transaction {
 public:
-	Deposit(int, int, int,int,string);
+	Deposit(int, Account*, int);
 	virtual ~Deposit();
 
 private:
