@@ -20,8 +20,25 @@ class Client {
 public:
 	Client();
 	virtual ~Client();
-	bool addAccount();
+	//bool addAccount();
 	void print();///todo on affiche les comptes et les records?
+	const string& getAddress() const;
+	void setAddress(const string& address);
+	const Date*& getBirhdate() const;
+	void setBirhdate(const Date*& birhdate);
+	int getBranchid() const;
+	void setBranchid(int branchid);
+	int getClientid() const;
+	void setClientid(int clientid);
+	const string& getName() const;
+	void setName(const string& name);
+	static int getNumberOfClients() const;
+	void setNumberOfClients(static int numberOfClients);
+	const string& getPhonenb() const;
+	void setPhonenb(const string& phonenb);
+	const Transaction**& getRecords() const;
+	const string& getSocialnb() const;
+	void setSocialnb(const string& socialnb);
 
 private:
 	int clientid;

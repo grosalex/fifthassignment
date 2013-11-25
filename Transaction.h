@@ -14,7 +14,7 @@ using namespace std;
 
 class Transaction {
 public:
-	Transaction(int);
+	Transaction(int, int,string);
 	virtual ~Transaction();
 
 private:

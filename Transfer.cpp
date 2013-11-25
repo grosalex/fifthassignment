@@ -7,8 +7,8 @@
 
 #include "Transfer.h"
 
-Transfer::Transfer(int inBranchSource, int inAccountSource,int inBranchTarget, int inAccountTarget, int inTransactionBranch)
-	:Transaction(inTransactionBranch){
+Transfer::Transfer(int inBranchSource, int inAccountSource,int inBranchTarget, int inAccountTarget, int inTransactionBranch, int inAmount, string inTransactionType)
+	:Transaction(inTransactionBranch,inAmount, inTransactionType){
 	accountsource = inAccountSource;
 	branchsource = inBranchSource;
 	branchtarget = inBranchTarget;

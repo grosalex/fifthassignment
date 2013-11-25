@@ -30,10 +30,10 @@ int main(void) {
 	 * 5) show clients from a branch
 	 * 6) transaction between two date
 	 */
-	///TODO Faire le addaccount et addclient dans bankmanager
-	///TODO Gérer le tableau Records dans méthodes transaction
+	///TODO Faire le addaccount et addclient dans bankmanager, ou revenir à version précédente (tableau accounts dans client)
+	///TODO Gérer le tableau Records dans méthodes transaction (je le ferai)
 	switch(choice){
-	case '1'://
+	case '1':
 		myManager->addBranch();
 		break;
 	case '2':

@@ -57,3 +57,71 @@ void Client::print() {
 	cout << "Client's phone number is " << phonenb << endl;
 	cout << "Client's social number is : "<< socialnb<<endl;
 }
+
+const string& Client::getAddress() const {
+	return address;
+}
+
+void Client::setAddress(const string& address) {
+	this->address = address;
+}
+
+const Date*& Client::getBirhdate() const {
+	return birhdate;
+}
+
+void Client::setBirhdate(const Date*& birhdate) {
+	this->birhdate = birhdate;
+}
+
+int Client::getBranchid() const {
+	return branchid;
+}
+
+void Client::setBranchid(int branchid) {
+	this->branchid = branchid;
+}
+
+int Client::getClientid() const {
+	return clientid;
+}
+
+void Client::setClientid(int clientid) {
+	this->clientid = clientid;
+}
+
+const string& Client::getName() const {
+	return name;
+}
+
+void Client::setName(const string& name) {
+	this->name = name;
+}
+
+static int Client::getNumberOfClients() const {
+	return number_of_clients;
+}
+
+void Client::setNumberOfClients(static int numberOfClients) {
+	number_of_clients = numberOfClients;
+}
+
+const string& Client::getPhonenb() const {
+	return phonenb;
+}
+
+void Client::setPhonenb(const string& phonenb) {
+	this->phonenb = phonenb;
+}
+
+const Transaction**& Client::getRecords() const {
+	return records;
+}
+
+const string& Client::getSocialnb() const {
+	return socialnb;
+}
+
+void Client::setSocialnb(const string& socialnb) {
+	this->socialnb = socialnb;
+}

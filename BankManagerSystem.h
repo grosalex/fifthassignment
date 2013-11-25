@@ -13,7 +13,7 @@
 #include <iostream>
 #include "Branch.h"
 //#include "Branch.cpp"
-
+#include "Transaction.h"
 #include "Account.h"
 #include "Client.h"
 class BankManagerSystem {
@@ -29,6 +29,8 @@ public:
 	bool doWithdrawal();
 	bool addAccount();
 	bool checkBranch(int); //Given a branchid, check if branch exists.
+	int returnBranchId(Account*); //Given an account, return corresponding branch id
+	void addTransactionRecord(Account*,Transaction*);
 
 private:
 	Branch * branchArray[maxbranch];

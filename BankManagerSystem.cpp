@@ -81,6 +81,8 @@ bool BankManagerSystem::doDeposit() {
 			if(bankAccounts[i]!=NULL && bankAccounts[i]->getAccountnb() == accountsource) {
 				cout << "account found at " << i << endl;
 				i = maxaccount;
+				Deposit* = new Deposit(returnBranchId(accountsource),accountsource,branch,amount,"d");
+
 				amount += amount*bankAccounts[i]->getInterest() + bankAccounts[i]->getMoney();
 				bankAccounts[i]->setMoney(amount);
 				ok = true;
@@ -157,11 +159,30 @@ bool BankManagerSystem::doWithdrawal() {
 bool BankManagerSystem::checkBranch(int branchID) {
 	bool ok = false;
 	for(int i=0;i<maxbranch;i++) {
-		if(branchID == branchArray[i]->getBranchid()) {
+		if(branchID == branchArray[i]->getBranchid() && branchArray[i]!=NULL) {
 			cout << "Branch found at " << i << endl;
 			i = maxbranch;
 			ok =true;
 		}
 	}
 	return ok;
+}
+
+int BankManagerSystem::returnBranchId(Account* account) {
+	int branchid;
+	for(int i=0;i<maxclient;i++) {
+		if(clientArray[i]->getClientid() == account->getClientid() && clientArray[i]!=NULL) {
+			branchid = clientArray[i]->getBranchid();
+			i=maxclient;
+		}
+	}
+	return branchid;
+}
+
+Client* BankManagerSystem::addTransactioninRecord(Account* account, Transaction* transaction) {
+	for(int i=0;i<maxclient;i++) {
+		if(clientArray[i]->getClientid() == account->getClientid() && clientArray[i]!=NULL) {
+
+		}
+	}
 }
