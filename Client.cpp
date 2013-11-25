@@ -148,3 +148,15 @@ void Client::showTransactions() {
 		}
 	}
 }
+
+Transaction* Client::findTransactionById(int id) {
+	int i=0;
+	for(i=0;i<maxRecord;i++){
+		if(records[i]!=NULL){
+			if(records[i]->getTransactionId()==id){
+				return records[i];
+			}
+		}
+	}
+	return NULL;
+}

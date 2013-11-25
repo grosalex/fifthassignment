@@ -19,6 +19,7 @@ int main(void) {
 	int idBis=0;
 	string name;
 	Client * target=NULL;
+	Transaction * targetTransaction=NULL;
 	bool results=false;
 	BankManagerSystem * myManager= new BankManagerSystem();
 	cout << "This is the fifth Assignment" << endl; /* prints This is the fifth Assignment */
@@ -91,6 +92,8 @@ int main(void) {
 		target->showTransactions();
 		cout << "Enter the transaction id you want :";
 		cin >> idBis;
+		targetTransaction=target->findTransactionById(idBis);
+
 	}
 	return 0;
 }
