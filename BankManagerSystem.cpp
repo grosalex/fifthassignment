@@ -168,6 +168,22 @@ bool BankManagerSystem::checkBranch(int branchID) {
 	return ok;
 }
 
+bool BankManagerSystem::addAccount() {
+	bool result=false;
+	Client * target=NULL;
+	int id;
+	this->showAllClients();
+	cout << "Enter the id of the client who is creating an accout :";
+	cin >> id;
+	target=this->findClientById(id);
+	if(target!=NULL){
+		result=target->openAccount();
+		result=true;
+		return result;
+	}
+	else return result;
+}
+
 int BankManagerSystem::returnBranchId(Account* account) {
 	int branchid;
 	for(int i=0;i<maxclient;i++) {
@@ -185,4 +201,25 @@ Client* BankManagerSystem::addTransactioninRecord(Account* account, Transaction*
 
 		}
 	}
+}
+
+void BankManagerSystem::showAllClients() {
+	int i=0;
+	for(i=0;i<maxbranch;i++){
+		if(branchArray[i]!=NULL){
+			branchArray[i]->showClients();
+		}
+	}
+}
+
+Client* BankManagerSystem::findClientById(int id) {
+	int i=0;
+	Client * target=NULL;
+	for(i=0;i<maxbranch;i++){
+		if(branchArray[i]!=NULL){
+			target=branchArray[i]->findClientById(id);
+			return target;
+		}
+	}
+	return NULL;
 }
