@@ -58,14 +58,29 @@ void Client::print() {
 	cout << "Client's social number is : "<< socialnb<<endl;
 }
 
-bool Client::doTransaction() {
-	bool ok=false;
-	int accountnb;
-	cout << "Select the account (enter account ID)" << endl;
-	for(int i=0; i<10;i++) {
-		accounts[i]->print();
+Account* Client::findAccountById(int id) {
+	int i=0;
+	for(i=0;i<10;i++){
+		if(accounts[i]!=NULL){
+			if(accounts[i]->getAccountnb()()==id){
+				return accounts[i];
+			}
+		}
 	}
-	cin >> accountnb;
+	return NULL;
+}
+
+bool Client::addTransactionInRecord(Transaction* t) {
+	bool ok=false;
+
+	for(int j=0;j<100;j++){
+		if(records[j]==NULL) {
+			records[j] = t;
+			ok =true;
+			j=100;
+		}
+	}
+	return ok;
 }
 
 const string& Client::getAddress() const {
@@ -82,14 +97,6 @@ const Date*& Client::getBirhdate() const {
 
 void Client::setBirhdate(const Date*& birhdate) {
 	this->birhdate = birhdate;
-}
-
-int Client::getBranchid() const {
-	return branchid;
-}
-
-void Client::setBranchid(int branchid) {
-	this->branchid = branchid;
 }
 
 int Client::getClientid() const {

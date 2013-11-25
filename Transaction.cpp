@@ -15,10 +15,10 @@ Transaction::Transaction(int inTransactionBranch) {
 
 	nb_of_transactions++;
 	transactionID = nb_of_transactions;
-	do {
+	/*do {
 		cout << "Which type ? w for withdrawal, t for transfer, d for deposit" << endl;
 		cin >> inTransactionType;
-	}while(inTransactionType!="w" || inTransactionType!="t" || inTransactionType!="d");
+	}while(inTransactionType!="w" || inTransactionType!="t" || inTransactionType!="d");*/
 	transactionType = inTransactionType;
 	cout << "How much money ?" << endl;
 	cin >> inAmount;

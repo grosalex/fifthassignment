@@ -24,13 +24,13 @@ public:
 	void showBranches();
 	bool addClientInBranch(int branchId);
 	void showClientFromBranch(int branchId);
-	bool doDeposit();
+	/*bool doDeposit();
 	bool doTransfer();
-	bool doWithdrawal();
+	bool doWithdrawal();*/
+	bool clientTransfer();
+	bool clientDepositWithdrawal();
 	bool addAccount();
 	bool checkBranch(int); //Given a branchid, check if branch exists.
-	int returnBranchId(Account*); //Given an account, return corresponding branch id
-	void addTransactionRecord(Account*,Transaction*);
 	void showAllClients();
 	Client * findClientById(int id);
 private:

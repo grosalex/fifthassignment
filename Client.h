@@ -14,6 +14,9 @@
 //#include "Account.cpp"
 #include <string>
 #include "Transaction.h"
+#include "Withdrawal.h"
+#include "Deposit.h"
+#include "Transfer.h"
 #define maxAccount 10
 #define maxRecord 10
 class Client {
@@ -22,13 +25,12 @@ public:
 	virtual ~Client();
 	//bool addAccount();
 	void print();///todo on affiche les comptes et les records?
-	bool doTransaction();
+	bool addTransactionInRecord(Transaction*);
+	Account* findAccountById(int);
 	const string& getAddress() const;
 	void setAddress(const string& address);
 	const Date*& getBirhdate() const;
 	void setBirhdate(const Date*& birhdate);
-	int getBranchid() const;
-	void setBranchid(int branchid);
 	int getClientid() const;
 	void setClientid(int clientid);
 	const string& getName() const;
@@ -51,7 +53,6 @@ private:
 	string address;
 	string phonenb;
 	string socialnb;
-	int branchid;
 	Account* accounts[10];///TODO Combien d'account ? Vector ? Mettre plutot id client dans classe account ?
 	Transaction* records[100];
 };

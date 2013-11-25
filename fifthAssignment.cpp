@@ -65,6 +65,9 @@ int main(void) {
 		break;
 	case '6':
 		break;
+
+	case '7':
+
 	}
 	return 0;
 }

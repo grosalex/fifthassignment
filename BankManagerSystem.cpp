@@ -67,7 +67,7 @@ void BankManagerSystem::showClientFromBranch(int branchId) {
 	}
 }
 
-bool BankManagerSystem::doDeposit() {
+/*bool BankManagerSystem::doDeposit() {
 	bool ok = false;
 	int accountsource, amount, branch;
 	cout << "Enter account number :";
@@ -154,7 +154,7 @@ bool BankManagerSystem::doWithdrawal() {
 		}
 	else cout << "Branch not found." << endl;
 	return ok;
-}
+}*/
 
 bool BankManagerSystem::checkBranch(int branchID) {
 	bool ok = false;
@@ -184,23 +184,112 @@ bool BankManagerSystem::addAccount() {
 	else return result;
 }
 
-int BankManagerSystem::returnBranchId(Account* account) {
-	int branchid;
-	for(int i=0;i<maxclient;i++) {
-		if(clientArray[i]->getClientid() == account->getClientid() && clientArray[i]!=NULL) {
-			branchid = clientArray[i]->getBranchid();
-			i=maxclient;
+bool BankManagerSystem::clientTransfer() {
+	bool ok=false;
+	int targetBranch;
+	int sourceBranch;
+	int transactionBranch;
+	int clientTargetId;
+	int clientSourceId;
+	int targetAccountid;
+	int sourceAccountid;
+	Client* clientTarget;
+	Client* clientSource;
+	Account* targetAccount;
+	Account* sourceAccount;
+
+	cout << "Select where you are doing the transaction";
+	cin >> transactionBranch;
+	for(int i=0;i<maxbranch;i++) {
+		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==targetBranch) {
+			cout << "Transaction Branch found" << endl;
+			i=maxbranch;
 		}
 	}
-	return branchid;
+
+	cout << "Select account target branch";
+	cin >> targetBranch;
+	for(int i=0;i<maxbranch;i++) {
+		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==targetBranch) {
+			cout << "Branch Target found" << endl;
+			i=maxbranch;
+			cout << "Enter client target id";
+			cin >> clientTargetId;
+			clientTarget = branchArray[i]->findClientById(clientTargetId);
+			cout << "Enter account nb";
+			cin >> targetAccountid;
+			targetAccount = clientTarget->findAccountById(targetAccountid);
+		}
+	}
+	cout << "Select account source branch";
+	cin >> sourceBranch;
+	for(int i=0;i<maxbranch;i++) {
+		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==sourceBranch) {
+			cout << "Branch Source found" << endl;
+			i=maxbranch;
+			cout << "Enter client source id";
+			cin >> clientSourceId;
+			clientTarget = branchArray[i]->findClientById(clientSourceId);
+			cout << "Enter account nb";
+			cin >> sourceAccountid;
+			targetAccount = clientTarget->findAccountById(sourceAccountid);
+		}
+	}
+	Transfer *t = new Transfer(sourceBranch,sourceAccount,targetBranch,targetAccount,transactionBranch);
+
+	//clientSource->addTransactionInRecord(t);
+	//clientTarget->addTransactionInRecord(t);
+	if(clientSource->addTransactionInRecord(t) && clientTarget->addTransactionInRecord(t)) ok =true;
+
+	return ok;
 }
 
-Client* BankManagerSystem::addTransactioninRecord(Account* account, Transaction* transaction) {
-	for(int i=0;i<maxclient;i++) {
-		if(clientArray[i]->getClientid() == account->getClientid() && clientArray[i]!=NULL) {
+bool BankManagerSystem::clientDepositWithdrawal() {
+	bool ok=false;
+	int branch;
+	int transactionBranch;
+	int clientId;
+	int accountid;
+	Client* client;
+	Account* account;
+	string type;
 
+	cout << "Select where you are doing the transaction";
+	cin >> transactionBranch;
+	for(int i=0;i<maxbranch;i++) {
+		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==transactionBranch) {
+			cout << "Transaction Branch found" << endl;
+			i=maxbranch;
 		}
 	}
+
+	cout << "Select account branch";
+	cin >> branch;
+	for(int i=0;i<maxbranch;i++) {
+		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==branch) {
+			cout << "Branch found" << endl;
+			i=maxbranch;
+			cout << "Enter client id";
+			cin >> clientId;
+			client = branchArray[i]->findClientById(clientId);
+			cout << "Enter account nb";
+			cin >> accountid;
+			account = client->findAccountById(accountid);
+		}
+	}
+	do {
+		cout << "Type d for Deposit, w for Withdrawal";
+		cin >> type;
+	}while(type!="d" || type!="w");
+	if(type == "d") {
+		Deposit *d = new Deposit(branch,account,transactionBranch);
+		ok = client->addTransactionInRecord(d);
+	}
+	else {
+		Withdrawal *w = new Withdrawal(branch,account,transactionBranch);
+		ok = client->addTransactionInRecord(w);
+	}
+	return ok;
 }
 
 void BankManagerSystem::showAllClients() {

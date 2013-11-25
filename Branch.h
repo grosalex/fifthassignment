@@ -17,6 +17,7 @@ class Branch {
 public:
 	Branch();
 	bool addClient();
+	bool performTransfer(int,int);
 	virtual ~Branch();
 	void print();
 	int getBranchid() const;
