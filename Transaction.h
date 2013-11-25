@@ -19,8 +19,6 @@ public:
 	virtual ~Transaction();
 	int getAmount() const;
 	void setAmount(int amount);
-	static int getNbOfTransactions() const;
-	void setNbOfTransactions(static int nbOfTransactions);
 	int getTransactionBranch() const;
 	void setTransactionBranch(int transactionBranch);
 	const Date*& getTransactionDate() const;

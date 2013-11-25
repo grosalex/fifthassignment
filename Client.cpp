@@ -64,7 +64,7 @@ Account* Client::findAccountById(int id) {
 	int i=0;
 	for(i=0;i<10;i++){
 		if(accounts[i]!=NULL){
-			if(accounts[i]->getAccountnb()()==id){
+			if(accounts[i]->getAccountnb()==id){
 				return accounts[i];
 			}
 		}
@@ -93,14 +93,6 @@ void Client::setAddress(const string& address) {
 	this->address = address;
 }
 
-const Date*& Client::getBirhdate() const {
-	return birhdate;
-}
-
-void Client::setBirhdate(const Date*& birhdate) {
-	this->birhdate = birhdate;
-}
-
 int Client::getClientid() const {
 	return clientid;
 }
@@ -121,20 +113,12 @@ int Client::getNumberOfClients(){
 	return number_of_clients;
 }
 
-void Client::setNumberOfClients(static int numberOfClients) {
-	number_of_clients = numberOfClients;
-}
-
 const string& Client::getPhonenb() const {
 	return phonenb;
 }
 
 void Client::setPhonenb(const string& phonenb) {
 	this->phonenb = phonenb;
-}
-
-const Transaction**& Client::getRecords() const {
-	return records;
 }
 
 const string& Client::getSocialnb() const {
