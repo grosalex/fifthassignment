@@ -21,7 +21,7 @@ Transfer::~Transfer() {
 
 
 void Transfer::print() {
-	Transaction:print();
+	Transaction::print();
 	cout << "Source Account" << endl;
 	accountsource->print();
 	cout << "Account Source is in branch N°" << branchsource << endl;
@@ -31,6 +31,6 @@ void Transfer::print() {
 }
 
 void Transfer::cancel() {
-	accountsource->setMoney(accountsource->getMoney()+amount);
-	accounttarget->setMoney(accounttarget->getMoney()-amount);
+	accountsource->setMoney(accountsource->getMoney()+this->getAmount());
+	accounttarget->setMoney(accounttarget->getMoney()-this->getAmount());
 }
