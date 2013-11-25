@@ -31,6 +31,6 @@ Transaction::Transaction(int inTransactionBranch) {
 }
 
 Transaction::~Transaction() {
-	// TODO Auto-generated destructor stub
+	delete transactionDate;
 }
 

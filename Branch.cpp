@@ -37,6 +37,7 @@ bool Branch::addClient() {
 
 Branch::~Branch() {
 	// TODO Auto-generated destructor stub
+	delete[] clientsArray;
 }
 
 void Branch::print() {

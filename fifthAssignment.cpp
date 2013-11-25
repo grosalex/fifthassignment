@@ -17,6 +17,7 @@ int main(void) {
 	char choice=' ';
 	int id=0;
 	string name;
+	Client * target=NULL;
 	bool results=false;
 	BankManagerSystem * myManager= new BankManagerSystem();
 	cout << "This is the fifth Assignment" << endl; /* prints This is the fifth Assignment */
@@ -67,10 +68,19 @@ int main(void) {
 		cin >> id;
 		myManager->showClientFromBranch(id);
 		break;
-	case '6':
+	case '6'://close a branch
+			results=myManager->closeBranch();
+			if(results==true){
+				cout << "Branch succesfully closed" << endl;
+			}
+			else cout << "Failure" << endl;
 		break;
-
-	case '7':
+	case '7'://destroy a client
+		myManager->showAllClients();
+		cout << "What is the id of the client you want to destroy : ";
+		cin >> id;
+		target=myManager->findClientById(id);
+		delete target;
 		break;
 	}
 	return 0;

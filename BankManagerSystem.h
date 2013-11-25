@@ -34,6 +34,7 @@ public:
 	void showAllClients();
 	Client * findClientById(int id);
 	void findClientByName(string name);
+	bool closeBranch();
 private:
 	Branch * branchArray[maxbranch];
 	Account* bankAccounts[maxaccount];

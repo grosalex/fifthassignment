@@ -35,7 +35,9 @@ Client::Client() {
 }
 
 Client::~Client() {
-	// TODO Auto-generated destructor stub
+	delete birhdate;
+	delete [] accounts;
+	delete [] records;
 }
 
 /*bool Client::addAccount() {

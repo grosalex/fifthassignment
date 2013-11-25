@@ -321,3 +321,20 @@ void BankManagerSystem::findClientByName(string name) {
 		}
 	}
 }
+
+bool BankManagerSystem::closeBranch() {
+	int id=0;
+	int i=0;
+	this->showBranches();
+	cout << "Enter the id of the branch you want to delete : ";
+	cin >> id;
+	for(i=0;i<maxbranch;i++){
+		if(branchArray[i]!=NULL){
+			if(branchArray[i]->getBranchid()==id){
+				delete branchArray[i];
+				return true;
+			}
+		}
+	}
+	return false;
+}
