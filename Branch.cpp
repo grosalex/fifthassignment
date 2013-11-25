@@ -17,12 +17,12 @@ Branch::Branch() {
 	cin >> inPhone;
 	branchid=number_of_branches;
 	number_of_branches++;
-	/*for(i=0;i<maxClient;i++){
+	for(i=0;i<maxClient;i++){
 		clientsArray[i]=NULL;
-	}*/
+	}
 }
 
-/*bool Branch::addClient() {
+bool Branch::addClient() {
 	bool results=false;
 	int i=0;
 	for(i=0;i<maxClient;i++){
@@ -33,7 +33,7 @@ Branch::Branch() {
 		}
 	}
 	return results;
-}*/
+}
 
 Branch::~Branch() {
 	// TODO Auto-generated destructor stub
@@ -53,11 +53,11 @@ void Branch::setBranchid(int branchid) {
 	this->branchid = branchid;
 }
 
-/*void Branch::showClients() {
+void Branch::showClients() {
 	int i=0;
 	for(i=0;i<maxClient;i++){
 		if(clientsArray[i]!=NULL){
 			clientsArray[i]->print();
 		}
 	}
-}*/
+}
