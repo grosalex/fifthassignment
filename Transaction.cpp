@@ -52,7 +52,7 @@ void Transaction::setTransactionId(int transactionId) {
 	transactionID = transactionId;
 }
 
-const string& Transaction::getTransactionType() const {
+const char Transaction::getTransactionType() const {
 	return transactionType;
 }
 

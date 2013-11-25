@@ -25,13 +25,13 @@ public:
 	void setTransactionDate(const Date*& transactionDate);
 	int getTransactionId() const;
 	void setTransactionId(int transactionId);
-	const string& getTransactionType() const;
+	const char getTransactionType() const;
 	void setTransactionType(const string& transactionType);
 
 private:
 	static int nb_of_transactions;
 	int transactionID;
-	string transactionType; //Deposit/Withdrawal/transfer
+	char transactionType; //Deposit/Withdrawal/transfer
 	int amount;
 	Date* transactionDate;
 	int transactionBranch;
