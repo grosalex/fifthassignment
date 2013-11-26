@@ -147,12 +147,20 @@ bool BankManagerSystem::clientTransfer() {
 		}
 	}
 	Transfer *t = new Transfer(sourceBranch,sourceAccount,targetBranch,targetAccount,transactionBranch,'t');
-	sourceAccount->setMoney(sourceAccount->getMoney()-t->getAmount());
-	targetAccount->setMoney(targetAccount->getMoney()+t->getAmount());
-	cout << "test";
-	clientSource->addTransactionInRecord(t);
-	clientTarget->addTransactionInRecord(t);
-	//if(clientSource->addTransactionInRecord(t) && clientTarget->addTransactionInRecord(t)) ok =true;
+	int newAmount = sourceAccount->getMoney()-t->getAmount();
+	try {
+		if(newAmount<0) throw sourceAccount->getMoney()-t->getAmount();
+		else {
+			sourceAccount->setMoney(sourceAccount->getMoney()-t->getAmount());
+			targetAccount->setMoney(targetAccount->getMoney()+t->getAmount());
+			clientSource->addTransactionInRecord(t);
+			clientTarget->addTransactionInRecord(t);
+		}
+	}
+	catch(int) /*ou catch (...)*/ {
+		cerr << "Not enough money" << endl;
+	}
+
 
 	return ok;
 }
