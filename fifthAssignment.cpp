@@ -14,6 +14,7 @@
 using namespace std;
 
 int main(void) {
+	///Initialize some variable
 	char choice=' ';
 	int id=0;
 	int transtype;
@@ -25,7 +26,7 @@ int main(void) {
 	bool results=false;
 	BankManagerSystem * myManager= new BankManagerSystem();
 	cout << "This is the fifth Assignment" << endl;
-
+	///Main Loop
 	do {
 		cout << "Enter 1 to create a branch" << endl << "Enter 2 to create a client in a branch" << endl;
 		cout << "Enter 3 to open an account for a client " << endl << "Enter 4 to look for a client " << endl;
@@ -36,9 +37,13 @@ int main(void) {
 		cin >> choice;
 		switch(choice){
 		case '1':
-			myManager->addBranch();
+			myManager->addBranch();//Add branch method
 			break;
 		case '2':
+			/*
+			 * We first show all branches and then ask in which one
+			 * you want to create the new client
+			 */
 			myManager->showBranches();
 			cout << "Enter the branch id in wich you want to create the client : ";
 			cin >> id;
@@ -53,19 +58,19 @@ int main(void) {
 			}
 			else cout << "Invalid branch id" << endl;
 			break;
-		case '3':
+		case '3'://call the add Account method and study its result
 			results=myManager->addAccount();
 			if(results==true){
 				cout << "Account succesfully created" << endl;
 			}
 			else cout << "Failure" << endl;
 			break;
-		case '4':
+		case '4':// finding a client by his name
 			cout << "Enter the client's name : ";
 			cin >> name;
 			myManager->findClientByName(name);
 			break;
-		case '5':
+		case '5':// show all clients in a branch
 			myManager->showBranches();
 			cout << "Enter the branch id in which you want to show clients : ";
 			cin >> id;
@@ -127,7 +132,7 @@ int main(void) {
 			}
 			break;
 
-		case '9':
+		case '9':// adding a new transaction
 			do {
 				cout << "Type 1 to do a deposit or withdrawal, 2 for transfer";
 				cin >> transtype;

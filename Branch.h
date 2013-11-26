@@ -17,14 +17,14 @@ class Branch {
 public:
 	Branch();
 	bool addClient();
-	bool performTransfer(int,int);
+//	bool performTransfer(int,int);
 	virtual ~Branch();
 	void print();
 	int getBranchid() const;
 	void setBranchid(int branchid);
-	void showClients();
-	Client * findClientById(int id);
-	void findClientByName(string name);
+	void showClients();// show all client in the current branch
+	Client * findClientById(int id);// find a client by his id
+	void findClientByName(string name);// by his name
 	void deleteclient(int id);
 
 private:

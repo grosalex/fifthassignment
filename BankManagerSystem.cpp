@@ -10,7 +10,7 @@
 BankManagerSystem::BankManagerSystem() {
 	int i=0;
 	for(i=0;i<maxbranch;i++){
-		branchArray[i]=NULL;
+		branchArray[i]=NULL;//setting to null the array
 	}
 }
 

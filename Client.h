@@ -26,7 +26,7 @@ public:
 	//bool addAccount();
 	void print();///todo on affiche les comptes et les records?
 	bool addTransactionInRecord(Transaction*);
-	Account* findAccountById(int);
+	Account* findAccountById(int);//find an account
 	const string& getAddress() const;
 	void setAddress(const string& address);
 	const Date*& getBirhdate() const;
@@ -42,12 +42,12 @@ public:
 	const Transaction**& getRecords() const;
 	const string& getSocialnb() const;
 	void setSocialnb(const string& socialnb);
-	bool openAccount();
-	void showTransactions();
+	bool openAccount();// add an account
+	void showTransactions();// show all past transaction
 	Transaction * findTransactionById(int id);
-	void showAllAccounts();
-	void showAllRecords();
-	void setTransactionToNull(int transactionId);
+	void showAllAccounts();// show all his account
+	void showAllRecords();// show all his records
+	void setTransactionToNull(int transactionId);//set an index to nul and delete a transaction if needed
 
 private:
 	int clientid;

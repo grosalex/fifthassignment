@@ -16,8 +16,6 @@ public:
 	virtual ~Account();
 	int getAccountnb() const;
 	void setAccountnb(int accountnb);
-	//int getClientid() const;
-	//void setClientid(int clientid);
 	int getInterest() const;
 	void setInterest(int interest);
 	int getMoney() const;
@@ -29,7 +27,7 @@ private:
 	int accountnb;
 	int money;
 	//int clientid;
-	int interest;
+	int interest;// not in percentage but divided by 100 so for 1% enter 0.01
 };
 
 #endif /* ACCOUNT_H_ */
