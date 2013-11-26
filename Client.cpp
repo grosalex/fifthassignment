@@ -56,11 +56,18 @@ Client::~Client() {
 }
 */
 void Client::print() {
+	int i=0;
 	cout << "Client's id : " << clientid<< endl;
 	cout << "Client's name : " << name << endl;
 	cout << "Client's address is : " << address << endl;
 	cout << "Client's phone number is " << phonenb << endl;
 	cout << "Client's social number is : "<< socialnb<<endl;
+	cout << "Here are his accounts : " << endl;
+	for(i=0;i<maxAccount;i++){
+		if(accounts[i]!=NULL){
+			accounts[i]->print();
+		}
+	}
 }
 
 Account* Client::findAccountById(int id) {

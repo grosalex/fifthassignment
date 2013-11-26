@@ -39,6 +39,11 @@ int main(void) {
 	///TODO Faire le addaccount et addclient dans bankmanager, ou revenir � version pr�c�dente (tableau accounts dans client)
 	///TODO G�rer le tableau Records dans m�thodes transaction (je le ferai)
 	do {
+		cout << "Enter 1 to create a branch" << endl << "Enter 2 to create a client in a branch" << endl;
+		cout << "Enter 3 to open an account for a client " << endl << "Enter 4 to look for a client " << endl;
+		cout << "Enter 5 to show all client in a branch" << endl << "Enter 6 to close a branch" << endl;
+		cout << "Enter 7 to destroy a client" << endl << "Enter 8 to cancel a transaction "<<endl;
+		cout << "Enter 9 to add a transaction " << endl;
 		cin >> choice;
 		switch(choice){
 		case '1':
