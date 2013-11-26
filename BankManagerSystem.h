@@ -35,8 +35,6 @@ public:
 	bool closeBranch();
 private:
 	Branch * branchArray[maxbranch];
-	Account* bankAccounts[maxaccount];
-	Client* clientArray[maxclient];
 };
 
 #endif /* BANKMANAGERSYSTEM_H_ */

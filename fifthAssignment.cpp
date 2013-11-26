@@ -24,26 +24,15 @@ int main(void) {
 	Transaction * targetTransaction=NULL;
 	bool results=false;
 	BankManagerSystem * myManager= new BankManagerSystem();
-	cout << "This is the fifth Assignment" << endl; /* prints This is the fifth Assignment */
-	/*
-	 * TODO
-	 * client method => withdrawal, deposite, transfertmoney(acount source, account target, value)
-	 *
-	 * 1) add/closing branch
-	 * 2) add/remove clients dans une branche
-	 * 3) open account for a client
-	 * 4) recherche client
-	 * 5) show clients from a branch
-	 * 6) transaction between two date
-	 */
-	///TODO Faire le addaccount et addclient dans bankmanager, ou revenir ï¿½ version prï¿½cï¿½dente (tableau accounts dans client)
-	///TODO Gï¿½rer le tableau Records dans mï¿½thodes transaction (je le ferai)
+	cout << "This is the fifth Assignment" << endl;
+
 	do {
 		cout << "Enter 1 to create a branch" << endl << "Enter 2 to create a client in a branch" << endl;
 		cout << "Enter 3 to open an account for a client " << endl << "Enter 4 to look for a client " << endl;
 		cout << "Enter 5 to show all client in a branch" << endl << "Enter 6 to close a branch" << endl;
 		cout << "Enter 7 to destroy a client" << endl << "Enter 8 to cancel a transaction "<<endl;
 		cout << "Enter 9 to add a transaction " << endl;
+		cout << "Enter q to quit" << endl;
 		cin >> choice;
 		switch(choice){
 		case '1':
@@ -65,7 +54,7 @@ int main(void) {
 			else cout << "Invalid branch id" << endl;
 			break;
 		case '3':
-			results=myManager->addAccount(); //à tester
+			results=myManager->addAccount();
 			if(results==true){
 				cout << "Account succesfully created" << endl;
 			}
@@ -74,7 +63,7 @@ int main(void) {
 		case '4':
 			cout << "Enter the client's name : ";
 			cin >> name;
-			myManager->findClientByName(name); //à tester
+			myManager->findClientByName(name);
 			break;
 		case '5':
 			myManager->showBranches();
@@ -84,7 +73,7 @@ int main(void) {
 			else cout << "Invalid branch id" << endl;
 			break;
 		case '6'://close a branch
-			results=myManager->closeBranch(); //à tester
+			results=myManager->closeBranch();
 			if(results==true){
 				cout << "Branch succesfully closed" << endl;
 			}
@@ -125,26 +114,27 @@ int main(void) {
 						dynamic_cast<Transfer*>(targetTransaction)->cancel();
 						break;
 					}
+					target->setTransactionToNull(targetTransaction->getTransactionId());
+					cout << "Succesfully cancelled" << endl;
 				}
 				else{
 					cout << "Invalid transaction id" << endl;
 				}
-				target->setTransactionToNull(targetTransaction->getTransactionId());
-				cout << "Succesfully cancelled" << endl;
+
 			}
 			else{
 				cout << "Invalid Client id "<< endl;
 			}
 			break;
 
-			case '9':
-				do {
-					cout << "Type 1 to do a deposit or withdrawal, 2 for transfer";
-					cin >> transtype;
-				}while(transtype!=1 && transtype!=2);
-				if(transtype==1) myManager->clientDepositWithdrawal();
-				if(transtype==2) myManager->clientTransfer();
-				break;
+		case '9':
+			do {
+				cout << "Type 1 to do a deposit or withdrawal, 2 for transfer";
+				cin >> transtype;
+			}while(transtype!=1 && transtype!=2);
+			if(transtype==1) myManager->clientDepositWithdrawal();
+			if(transtype==2) myManager->clientTransfer();
+			break;
 		}
 	}while(choice!='q');
 	return 0;

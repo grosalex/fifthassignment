@@ -12,16 +12,10 @@ BankManagerSystem::BankManagerSystem() {
 	for(i=0;i<maxbranch;i++){
 		branchArray[i]=NULL;
 	}
-	for(i=0;i<maxaccount;i++){
-		bankAccounts[i]=NULL;
-	}
-	for(i=0;i<maxclient;i++){
-		clientArray[i]=NULL;
-	}
 }
 
 BankManagerSystem::~BankManagerSystem() {
-	// TODO Auto-generated destructor stub
+	delete []branchArray;
 }
 
 bool BankManagerSystem::addBranch() {
@@ -70,7 +64,7 @@ void BankManagerSystem::showClientFromBranch(int branchId) {
 bool BankManagerSystem::checkBranch(int branchID) {
 	bool ok = false;
 	for(int i=0;i<maxbranch;i++) {
-		if(branchID == branchArray[i]->getBranchid() && branchArray[i]!=NULL) {
+		if(branchArray[i]!=NULL && branchID == branchArray[i]->getBranchid()) {
 			cout << "Branch found at " << i << endl;
 			i = maxbranch;
 			ok =true;
