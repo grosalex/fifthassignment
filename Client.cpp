@@ -173,3 +173,21 @@ Transaction* Client::findTransactionById(int id) {
 	}
 	return NULL;
 }
+
+void Client::showAllAccounts() {
+	int i=0;
+	for(i=0;i<maxAccount;i++){
+		if(accounts[i]!=NULL){
+			accounts[i]->print();
+		}
+	}
+}
+
+void Client::showAllRecords() {
+	int i=0;
+	for(i=0;i<maxRecord;i++){
+		if(records[i]!=NULL){
+			records[i]->print();
+		}
+	}
+}

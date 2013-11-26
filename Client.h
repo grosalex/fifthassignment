@@ -45,6 +45,9 @@ public:
 	bool openAccount();
 	void showTransactions();
 	Transaction * findTransactionById(int id);
+	void showAllAccounts();
+	void showAllRecords();
+
 
 private:
 	int clientid;
