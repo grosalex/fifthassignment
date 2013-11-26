@@ -108,23 +108,33 @@ int main(void) {
 			cout << "What is the id of the client who wants to cancel a transaction : ";
 			cin >> id;
 			target=myManager->findClientById(id);
-			target->showTransactions();
-			cout << "Enter the transaction id you want :";
-			cin >> idBis;
-			targetTransaction=target->findTransactionById(idBis);
-			switch(targetTransaction->getTransactionType()) {
-			case 'd':
-				dynamic_cast<Deposit*>(targetTransaction)->cancel();
-				break;
-			case 'w':
-				dynamic_cast<Withdrawal*>(targetTransaction)->cancel();
-				break;
-			case 't':
-				dynamic_cast<Transfer*>(targetTransaction)->cancel();
-				break;
+			if(target!=NULL){
+				target->showTransactions();
+				cout << "Enter the transaction id you want :";
+				cin >> idBis;
+				targetTransaction=target->findTransactionById(idBis);
+				if(targetTransaction!=NULL){
+					switch(targetTransaction->getTransactionType()) {
+					case 'd':
+						dynamic_cast<Deposit*>(targetTransaction)->cancel();
+						break;
+					case 'w':
+						dynamic_cast<Withdrawal*>(targetTransaction)->cancel();
+						break;
+					case 't':
+						dynamic_cast<Transfer*>(targetTransaction)->cancel();
+						break;
+					}
+				}
+				else{
+					cout << "Invalid transaction id" << endl;
+				}
+				target->setTransactionToNull(targetTransaction->getTransactionId());
+				cout << "Succesfully cancelled" << endl;
 			}
-			target->setTransactionToNull(targetTransaction->getTransactionId());
-			cout << "Succesfully cancelled" << endl;
+			else{
+				cout << "Invalid Client id "<< endl;
+			}
 			break;
 
 			case '9':
