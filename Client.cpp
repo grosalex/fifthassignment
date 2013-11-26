@@ -191,3 +191,15 @@ void Client::showAllRecords() {
 		}
 	}
 }
+
+void Client::setTransactionToNull(int transactionId) {
+	int i=0;
+	for(i=0;i<maxRecord;i++){
+		if(records[i]!=NULL){
+			if(records[i]->getTransactionId()== transactionId){
+				delete records[i];
+				records[i]=NULL;
+			}
+		}
+	}
+}

@@ -107,7 +107,7 @@ int main(void) {
 				dynamic_cast<Transfer*>(targetTransaction)->cancel();
 				break;
 			}
-			delete targetTransaction;
+			target->setTransactionToNull(targetTransaction->getTransactionId());
 			cout << "Succesfully cancelled" << endl;
 			break;
 

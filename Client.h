@@ -47,7 +47,7 @@ public:
 	Transaction * findTransactionById(int id);
 	void showAllAccounts();
 	void showAllRecords();
-
+	void setTransactionToNull(int transactionId);
 
 private:
 	int clientid;
