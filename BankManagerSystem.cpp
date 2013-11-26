@@ -238,6 +238,17 @@ Client* BankManagerSystem::findClientById(int id) {
 	return NULL;
 }
 
+Branch* BankManagerSystem::findBranchById(int id) {
+	Branch* target=NULL;
+	for(int i=0;i<maxbranch;i++) {
+		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==id) {
+			target=branchArray[i];
+			return target;
+		}
+	}
+	return NULL;
+}
+
 void BankManagerSystem::findClientByName(string name) {
 	int i=0;
 	for(i=0;i<maxbranch;i++){
@@ -257,6 +268,7 @@ bool BankManagerSystem::closeBranch() {
 		if(branchArray[i]!=NULL){
 			if(branchArray[i]->getBranchid()==id){
 				delete branchArray[i];
+				branchArray[i]=NULL;
 				return true;
 			}
 		}

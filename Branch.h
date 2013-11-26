@@ -25,6 +25,7 @@ public:
 	void showClients();
 	Client * findClientById(int id);
 	void findClientByName(string name);
+	void deleteclient(int id);
 
 private:
 	int branchid;

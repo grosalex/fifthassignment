@@ -61,10 +61,6 @@ void Transaction::setTransactionId(int transactionId) {
 	transactionID = transactionId;
 }
 
-char Transaction::getTransactionType() const {
+char Transaction::getTransactionType(){
 	return transactionType;
-}
-
-void Transaction::setTransactionType(char transactionType) {
-	this->transactionType = transactionType;
 }

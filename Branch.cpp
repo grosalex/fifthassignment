@@ -87,3 +87,16 @@ void Branch::findClientByName(string name) {
 		}
 	}
 }
+
+void Branch::deleteclient(int id) {
+	int i=0;
+	for(i=0;i<maxClient;i++){
+		if(clientsArray[i]!=NULL){
+			if(clientsArray[i]->getClientid()== id){
+				delete clientsArray[i];
+				clientsArray[i]=NULL;
+			}
+		}
+	}
+
+}

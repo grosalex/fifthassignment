@@ -20,6 +20,7 @@ int main(void) {
 	int idBis=0;
 	string name;
 	Client * target=NULL;
+	Branch* branchTarget=NULL;
 	Transaction * targetTransaction=NULL;
 	bool results=false;
 	BankManagerSystem * myManager= new BankManagerSystem();
@@ -81,11 +82,14 @@ int main(void) {
 			else cout << "Failure" << endl;
 			break;
 		case '7'://destroy a client
-			myManager->showAllClients();
+			myManager->showBranches();
+			cout << "What is the id of the client's branch : ";
+			cin >> id;
+			branchTarget = myManager->findBranchById(id);
+			myManager->showClientFromBranch(id);
 			cout << "What is the id of the client you want to destroy : ";
 			cin >> id;
-			target=myManager->findClientById(id);
-			delete target;
+			branchTarget->deleteclient(id);
 			break;
 		case '8'://cancel a transaction
 			myManager->showAllClients();
