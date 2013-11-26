@@ -16,6 +16,7 @@ using namespace std;
 int main(void) {
 	char choice=' ';
 	int id=0;
+	int transtype;
 	int idBis=0;
 	string name;
 	Client * target=NULL;
@@ -36,64 +37,66 @@ int main(void) {
 	 */
 	///TODO Faire le addaccount et addclient dans bankmanager, ou revenir � version pr�c�dente (tableau accounts dans client)
 	///TODO G�rer le tableau Records dans m�thodes transaction (je le ferai)
-	switch(choice){
-	case '1':
-		myManager->addBranch();
-		break;
-	case '2':
-		myManager->showBranches();
-		cout << "Enter the branch id in wich you want to create the client : ";
-		cin >> id;
-		results=myManager->addClientInBranch(id);
-		if(results){
-			cout << "Success" << endl;
-		}
-		else{
-			cout << "failure" << endl;
-		}
-		break;
-	case '3':
-		results=myManager->addAccount();
-		if(results==true){
-			cout << "Account succesfully created" << endl;
-		}
-		else cout << "Failure" << endl;
-		break;
-	case '4':
-		cout << "Enter the client's name : ";
-		cin >> name;
-		myManager->findClientByName(name);
-		break;
-	case '5':
-		myManager->showBranches();
-		cout << "Enter the branch id in wich you want to show clients : ";
-		cin >> id;
-		myManager->showClientFromBranch(id);
-		break;
-	case '6'://close a branch
+	do {
+		cin >> choice;
+		switch(choice){
+		case '1':
+			myManager->addBranch();
+			break;
+		case '2':
+			myManager->showBranches();
+			cout << "Enter the branch id in wich you want to create the client : ";
+			cin >> id;
+			results=myManager->addClientInBranch(id);
+			if(results){
+				cout << "Success" << endl;
+			}
+			else{
+				cout << "failure" << endl;
+			}
+			break;
+		case '3':
+			results=myManager->addAccount();
+			if(results==true){
+				cout << "Account succesfully created" << endl;
+			}
+			else cout << "Failure" << endl;
+			break;
+		case '4':
+			cout << "Enter the client's name : ";
+			cin >> name;
+			myManager->findClientByName(name);
+			break;
+		case '5':
+			myManager->showBranches();
+			cout << "Enter the branch id in wich you want to show clients : ";
+			cin >> id;
+			myManager->showClientFromBranch(id);
+			break;
+		case '6'://close a branch
 			results=myManager->closeBranch();
 			if(results==true){
 				cout << "Branch succesfully closed" << endl;
 			}
 			else cout << "Failure" << endl;
-		break;
-	case '7'://destroy a client
-		myManager->showAllClients();
-		cout << "What is the id of the client you want to destroy : ";
-		cin >> id;
-		target=myManager->findClientById(id);
-		delete target;
-		break;
-	case '8'://cancel a transaction
-		myManager->showAllClients();
-		cout << "What is the id of the client who wants to cancel a transaction : ";
-		cin >> id;
-		target=myManager->findClientById(id);
-		target->showTransactions();
-		cout << "Enter the transaction id you want :";
-		cin >> idBis;
-		targetTransaction=target->findTransactionById(idBis);
-		switch(targetTransaction->getTransactionType()) {
+			break;
+		case '7'://destroy a client
+			myManager->showAllClients();
+			cout << "What is the id of the client you want to destroy : ";
+			cin >> id;
+			target=myManager->findClientById(id);
+			delete target;
+			break;
+		case '8'://cancel a transaction
+			myManager->showAllClients();
+			cout << "What is the id of the client who wants to cancel a transaction : ";
+			cin >> id;
+			target=myManager->findClientById(id);
+			target->showTransactions();
+			cout << "Enter the transaction id you want :";
+			cin >> idBis;
+			targetTransaction=target->findTransactionById(idBis);
+			switch(targetTransaction->getTransactionType()) {
 			case 'd':
 				dynamic_cast<Deposit*>(targetTransaction)->cancel();
 				break;
@@ -103,9 +106,20 @@ int main(void) {
 			case 't':
 				dynamic_cast<Transfer*>(targetTransaction)->cancel();
 				break;
+			}
+			delete targetTransaction;
+			cout << "Succesfully cancelled" << endl;
+			break;
+
+			case '9':
+				do {
+					cout << "Type 1 to do a deposit or withdrawal, 2 for transfer";
+					cin >> transtype;
+				}while(transtype!=1 && transtype!=2);
+				if(transtype==1) myManager->clientDepositWithdrawal();
+				if(transtype==2) myManager->clientTransfer();
+				break;
 		}
-		delete targetTransaction;
-		cout << "Succesfully cancelled" << endl;
-	}
+	}while(choice!='q');
 	return 0;
 }

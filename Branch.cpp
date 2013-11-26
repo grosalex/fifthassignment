@@ -20,6 +20,8 @@ Branch::Branch() {
 	for(i=0;i<maxClient;i++){
 		clientsArray[i]=NULL;
 	}
+	address = inAddress;
+	phonenb = inPhone;
 }
 
 bool Branch::addClient() {

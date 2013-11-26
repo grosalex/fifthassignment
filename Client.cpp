@@ -32,6 +32,9 @@ Client::Client() {
 	for(i=0;i<maxRecord;i++){
 		records[i]=NULL;
 	}
+	for(i=0;i<10;i++) {
+		accounts[i]=NULL;
+	}
 }
 
 Client::~Client() {

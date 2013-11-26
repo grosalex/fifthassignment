@@ -16,8 +16,8 @@ public:
 	virtual ~Account();
 	int getAccountnb() const;
 	void setAccountnb(int accountnb);
-	int getClientid() const;
-	void setClientid(int clientid);
+	//int getClientid() const;
+	//void setClientid(int clientid);
 	int getInterest() const;
 	void setInterest(int interest);
 	int getMoney() const;
@@ -25,9 +25,10 @@ public:
 	void print();
 
 private:
+	static int number_of_accounts;
 	int accountnb;
 	int money;
-	int clientid;
+	//int clientid;
 	int interest;
 };
 

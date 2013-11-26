@@ -6,24 +6,20 @@
  */
 
 #include "Account.h"
-
+int Account::number_of_accounts=0;
 Account::Account() {
-	int inAccountnb;
 	int inMoney;
-	int inClientid;
 	int inInterest;
-
-	cout << "Enter the account number : ";
-	cin >> inAccountnb;
+	number_of_accounts++;
+	accountnb = number_of_accounts;
 	cout << "Enter the money : ";
 	cin >> inMoney;
-	cout << "Enter the client id : ";
-	cin >> inClientid;
-	cout << "Enter the interest : ";
+	//cout << "Enter the client id : ";
+	//cin >> inClientid;
+	cout << "Enter the interest : (divided by 100)";
 	cin >> inInterest;
-	accountnb=inAccountnb;
 	money=inMoney;
-	clientid=inClientid;
+	//clientid=inClientid;
 	interest=inInterest;
 }
 
@@ -43,14 +39,6 @@ int Account::getAccountnb() const {
 
 void Account::setAccountnb(int accountnb) {
 	this->accountnb = accountnb;
-}
-
-int Account::getClientid() const {
-	return clientid;
-}
-
-void Account::setClientid(int clientid) {
-	this->clientid = clientid;
 }
 
 int Account::getInterest() const {
