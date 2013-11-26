@@ -43,18 +43,6 @@ Client::~Client() {
 	delete [] records;
 }
 
-/*bool Client::addAccount() {
-	bool result=false;
-	int i=0;
-	for(i=0;i<maxAccount;i++){
-		if(accounts[i]==NULL){
-			accounts[i]=new Account();
-			i=maxAccount;
-		}
-	}
-	return result;
-}
-*/
 void Client::print() {
 	int i=0;
 	cout << "Client's id : " << clientid<< endl;

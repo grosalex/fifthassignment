@@ -53,16 +53,19 @@ int main(void) {
 			myManager->showBranches();
 			cout << "Enter the branch id in wich you want to create the client : ";
 			cin >> id;
-			results=myManager->addClientInBranch(id);
-			if(results){
-				cout << "Success" << endl;
+			if(myManager->checkBranch(id)) {
+				results=myManager->addClientInBranch(id);
+				if(results){
+					cout << "Success" << endl;
+				}
+				else{
+					cout << "failure" << endl;
+				}
 			}
-			else{
-				cout << "failure" << endl;
-			}
+			else cout << "Invalid branch id" << endl;
 			break;
 		case '3':
-			results=myManager->addAccount();
+			results=myManager->addAccount(); //à tester
 			if(results==true){
 				cout << "Account succesfully created" << endl;
 			}
@@ -71,16 +74,17 @@ int main(void) {
 		case '4':
 			cout << "Enter the client's name : ";
 			cin >> name;
-			myManager->findClientByName(name);
+			myManager->findClientByName(name); //à tester
 			break;
 		case '5':
 			myManager->showBranches();
-			cout << "Enter the branch id in wich you want to show clients : ";
+			cout << "Enter the branch id in which you want to show clients : ";
 			cin >> id;
-			myManager->showClientFromBranch(id);
+			if(myManager->checkBranch(id)) myManager->showClientFromBranch(id);
+			else cout << "Invalid branch id" << endl;
 			break;
 		case '6'://close a branch
-			results=myManager->closeBranch();
+			results=myManager->closeBranch(); //à tester
 			if(results==true){
 				cout << "Branch succesfully closed" << endl;
 			}
@@ -91,10 +95,13 @@ int main(void) {
 			cout << "What is the id of the client's branch : ";
 			cin >> id;
 			branchTarget = myManager->findBranchById(id);
-			myManager->showClientFromBranch(id);
-			cout << "What is the id of the client you want to destroy : ";
-			cin >> id;
-			branchTarget->deleteclient(id);
+			if(myManager->checkBranch(id)) {
+				myManager->showClientFromBranch(id);
+				cout << "What is the id of the client you want to destroy : ";
+				cin >> id;
+				branchTarget->deleteclient(id);
+			}
+			else cout << "Invalid branch id" << endl;
 			break;
 		case '8'://cancel a transaction
 			myManager->showAllClients();

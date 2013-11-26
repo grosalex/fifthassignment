@@ -97,6 +97,7 @@ bool BankManagerSystem::addAccount() {
 
 bool BankManagerSystem::clientTransfer() {
 	bool ok=false;
+	bool branchok=false;
 	int targetBranch;
 	int sourceBranch;
 	int transactionBranch;
@@ -114,52 +115,66 @@ bool BankManagerSystem::clientTransfer() {
 	for(int i=0;i<maxbranch;i++) {
 		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==targetBranch) {
 			cout << "Transaction Branch found" << endl;
+			branchok=true;
 			i=maxbranch;
 		}
 	}
 
-	cout << "Select account target branch";
-	cin >> targetBranch;
-	for(int i=0;i<maxbranch;i++) {
-		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==targetBranch) {
-			cout << "Branch Target found" << endl;
-			cout << "Enter client target id";
-			cin >> clientTargetId;
-			clientTarget = branchArray[i]->findClientById(clientTargetId);
-			cout << "Enter account nb";
-			cin >> targetAccountid;
-			targetAccount = clientTarget->findAccountById(targetAccountid);
-			i=maxbranch;
+	if(branchok) {
+		cout << "Select account target branch";
+		cin >> targetBranch;
+		if(checkBranch(targetBranch)) {
+			for(int i=0;i<maxbranch;i++) {
+				if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==targetBranch) {
+					cout << "Branch Target found" << endl;
+					cout << "Enter client target id";
+					cin >> clientTargetId;
+					clientTarget = branchArray[i]->findClientById(clientTargetId);
+					if(clientTarget==NULL) return false;
+					cout << "Enter account nb";
+					cin >> targetAccountid;
+					targetAccount = clientTarget->findAccountById(targetAccountid);
+					if(targetAccount==NULL) return false;
+					i=maxbranch;
+				}
+			}
+			cout << "Select account source branch";
+			cin >> sourceBranch;
+			if(checkBranch(sourceBranch)) {
+				for(int i=0;i<maxbranch;i++) {
+					if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==sourceBranch) {
+						cout << "Branch Source found" << endl;
+						cout << "Enter client source id";
+						cin >> clientSourceId;
+						clientSource = branchArray[i]->findClientById(clientSourceId);
+						if(clientSource==NULL) return false;
+						cout << "Enter account nb";
+						cin >> sourceAccountid;
+						sourceAccount = clientTarget->findAccountById(sourceAccountid);
+						if(sourceAccount==NULL) return false;
+						i=maxbranch;
+					}
+				}
+				Transfer *t = new Transfer(sourceBranch,sourceAccount,targetBranch,targetAccount,transactionBranch,'t');
+				int newAmount = sourceAccount->getMoney()-t->getAmount();
+				try {
+					if(newAmount<0) throw sourceAccount->getMoney()-t->getAmount();
+					else {
+						sourceAccount->setMoney(sourceAccount->getMoney()-t->getAmount());
+						targetAccount->setMoney(targetAccount->getMoney()+t->getAmount());
+						clientSource->addTransactionInRecord(t);
+						clientTarget->addTransactionInRecord(t);
+					}
+				}
+				catch(int) /*ou catch (...)*/ {
+					cerr << "Not enough money" << endl;
+				}
+			}
+			else cout << "Source branch not found" << endl;
 		}
+		else cout << "Target branch not found" << endl;
 	}
-	cout << "Select account source branch";
-	cin >> sourceBranch;
-	for(int i=0;i<maxbranch;i++) {
-		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==sourceBranch) {
-			cout << "Branch Source found" << endl;
-			cout << "Enter client source id";
-			cin >> clientSourceId;
-			clientSource = branchArray[i]->findClientById(clientSourceId);
-			cout << "Enter account nb";
-			cin >> sourceAccountid;
-			sourceAccount = clientTarget->findAccountById(sourceAccountid);
-			i=maxbranch;
-		}
-	}
-	Transfer *t = new Transfer(sourceBranch,sourceAccount,targetBranch,targetAccount,transactionBranch,'t');
-	int newAmount = sourceAccount->getMoney()-t->getAmount();
-	try {
-		if(newAmount<0) throw sourceAccount->getMoney()-t->getAmount();
-		else {
-			sourceAccount->setMoney(sourceAccount->getMoney()-t->getAmount());
-			targetAccount->setMoney(targetAccount->getMoney()+t->getAmount());
-			clientSource->addTransactionInRecord(t);
-			clientTarget->addTransactionInRecord(t);
-		}
-	}
-	catch(int) /*ou catch (...)*/ {
-		cerr << "Not enough money" << endl;
-	}
+	else cout << "Transaction Branch not found" << endl;
 
 
 	return ok;
@@ -167,6 +182,7 @@ bool BankManagerSystem::clientTransfer() {
 
 bool BankManagerSystem::clientDepositWithdrawal() {
 	bool ok=false;
+	bool branchok=false;
 	int branch;
 	int transactionBranch;
 	int clientId;
@@ -175,52 +191,60 @@ bool BankManagerSystem::clientDepositWithdrawal() {
 	Account* account = NULL;
 	char type;
 
-	cout << "Select where you are doing the transaction";
+	cout << "Select where you are doing the transaction (type branch id)";
 	cin >> transactionBranch;
 	for(int i=0;i<maxbranch;i++) {
 		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==transactionBranch) {
 			cout << "Transaction Branch found" << endl;
+			branchok=true;
 			i=maxbranch;
 		}
 	}
 
-	cout << "Select account branch";
-	cin >> branch;
-	for(int i=0;i<maxbranch;i++) {
-		if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==branch) {
-			cout << "Branch found" << endl;
-			cout << "Enter client id";
-			cin >> clientId;
-			client = branchArray[i]->findClientById(clientId);
-			cout << "Enter account nb";
-			cin >> accountid;
-			account = client->findAccountById(accountid);
-			i=maxbranch;
-		}
-	}
-	do {
-		cout << "Type d for Deposit, w for Withdrawal";
-		cin >> type;
-	}while(type!='d' && type!='w');
-	if(type == 'd') {
-		Deposit *d = new Deposit(branch,account,transactionBranch,type);
-		account->setMoney(account->getMoney()+d->getAmount()*account->getInterest()+d->getAmount());
-		ok = client->addTransactionInRecord(d);
-	}
-	else {
-		Withdrawal *w = new Withdrawal(branch,account,transactionBranch,type);
-		int newAmount = account->getMoney()-w->getAmount();
-		try {
-			if(newAmount<0) throw account->getMoney()-w->getAmount();
+	if(branchok) {
+		cout << "Select account branch";
+		cin >> branch;
+		if(checkBranch(branch)) {
+			for(int i=0;i<maxbranch;i++) {
+				if(branchArray[i]!=NULL && branchArray[i]->getBranchid()==branch) {
+					cout << "Branch found" << endl;
+					cout << "Enter client id";
+					cin >> clientId;
+					client = branchArray[i]->findClientById(clientId);
+					if(client==NULL) return false;
+					cout << "Enter account nb";
+					cin >> accountid;
+					account = client->findAccountById(accountid);
+					if(account==NULL) return false;
+					i=maxbranch;
+				}
+			}
+			do {
+				cout << "Type d for Deposit, w for Withdrawal";
+				cin >> type;
+			}while(type!='d' && type!='w');
+			if(type == 'd') {
+				Deposit *d = new Deposit(branch,account,transactionBranch,type);
+				account->setMoney(account->getMoney()+d->getAmount()*account->getInterest()+d->getAmount());
+				ok = client->addTransactionInRecord(d);
+			}
 			else {
-				account->setMoney(account->getMoney()-w->getAmount());
-				ok = client->addTransactionInRecord(w);
+				Withdrawal *w = new Withdrawal(branch,account,transactionBranch,type);
+				int newAmount = account->getMoney()-w->getAmount();
+				try {
+					if(newAmount<0) throw account->getMoney()-w->getAmount();
+					else {
+						account->setMoney(account->getMoney()-w->getAmount());
+						ok = client->addTransactionInRecord(w);
+					}
+				}
+				catch(int) /*ou catch (...)*/ {
+					cerr << "Not enough money" << endl;
+				}
 			}
 		}
-		catch(int) /*ou catch (...)*/ {
-			cerr << "Not enough money" << endl;
-		}
 	}
+	else cout << "invalid branch id" << endl;
 
 	return ok;
 }
