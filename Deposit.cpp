@@ -19,13 +19,13 @@ Deposit::~Deposit() {
 
 
 void Deposit::print() {
-	Transaction:print();
+	Transaction::print();
 	account->print();
 	cout << "Account is in branch N°" << accountBranch << endl;
 }
 
 
 void Deposit::cancel() {
-	account->setMoney(account->getMoney()-amount);
+	account->setMoney(account->getMoney()-this->getAmount());
 }
 

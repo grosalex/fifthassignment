@@ -26,8 +26,8 @@ public:
 	void setTransactionDate(const Date*& transactionDate);
 	int getTransactionId() const;
 	void setTransactionId(int transactionId);
-	const char getTransactionType() const;
-	void setTransactionType(const string& transactionType);
+	char getTransactionType() const;
+	void setTransactionType(char transactionType);
 
 private:
 	static int nb_of_transactions;

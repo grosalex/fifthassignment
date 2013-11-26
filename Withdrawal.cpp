@@ -19,11 +19,11 @@ Withdrawal::~Withdrawal() {
 
 
 void Withdrawal::print() {
-	Transaction:print();
-	account->print();
+	Transaction::print();
+	this->account->print();
 	cout << "Account is in branch N°" << branch << endl;
 }
 
 void Withdrawal::cancel() {
-	account->setMoney(account->getMoney()+amount);
+	account->setMoney(account->getMoney()+this->getAmount());
 }

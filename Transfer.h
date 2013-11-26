@@ -15,13 +15,14 @@ public:
 	Transfer(int, Account*, int, Account*, int,char);
 	virtual ~Transfer();
 	void cancel();
+	virtual void print();
 
 private:
 	Account* accountsource;
 	int branchsource;
 	int branchtarget;
 	Account* accounttarget;
-	virtual void print();
+
 };
 
 #endif /* TRANSFER_H_ */
